@@ -1,0 +1,75 @@
+A) Automobiliu nuomavimo valdymo sistema.
+
+0) Vartotojas
+1) Automobilis
+2) Garazas(ai)
+3) Klientas
+4) Uzsakymas
+5) Kalendorius/Tvarkarastis
+
+B) SAVYBES:
+
+C) Pagrindines savybes:
+* Valdymo sistema leidzia sukurti vartotoja
+	- vartotojo vardas
+	- slaptazodis
+	- Vardas, Pavarde
+	- duomenys issaugomi faile
+* Valdymo sistema leidzia prisijungti/atsijungti vartotojui
+* Vartotojas gali itraukti automobili i automobiliu sarasa
+	Automobilis tures tokius duomenis:
+	- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
+	
+* Vartotojas gali sukurti uzsakyma, kuris tures:
+	- paemimo data, laikas, paemimo vieta (garazai)
+	- grazinimo data, laikas, grazinimo vieta
+	- Kliento duomenys
+* Vartotojas gali israshyti saskaita:
+	Saskaita:
+	- uzsakymo nr.
+	- paskaiciuotas nuomos laikas (dienos, valandos)
+	- nuomos tarifas,
+	- papildomos paslaugos
+	- totali suma
+
+Valdymo sistema turi:
+- leisti redaguoti/trinti vartotojus ir ju duomenis
+
+Vartotojas gali:
+- sukurti nauja garaza
+- sukurti nauja klienta ir red. jo duomenis
+- sukurti uzsakyma
+- nustatyti mokesti uz automobiliu nuoma/val.
+- paziureti kurie automobiliai garaze neuzimti
+- is anksto isnuomoti klientui automobili ir irasyti i tvarkarasti
+	- paemimo data, laikas
+	- paemimo vieta (garazai)
+	- grazinimo data, laikas
+	- grazinimo vieta
+- atlikti apmokejima
+
+Garazas tures:
+- adresa
+- max automoboliu vietu skaiciu
+- automobilius (array?)
+- parkavimo vietos (uzimta/neuzimta)
+
+Kalendorius/Tvarkarastis:
+- kokie automobiliai siandien isnuomojami/grazinami
+- kokie automobiliai sia savaite isnuomojami/grazinami
+
+Klientas:
+- butinai turi pateikti:
+	- Varda, Pavarde, tel. nr., pasa (asm. kodas), vairavimo teises (nr.)
+- gali pateikti papildomai:
+	- el. pastas, gyv. adresa,
+- gali pasirinkti:
+	- masina, garaza is kur paims (is Vilniaus, ar is Kauno)
+	- Su navigacine iranga, ar be
+	- Ar reikalinga vaiko kedute
+
+Klientas noretu:
+- zinoti kokie automobiliai yra prieinami
+- kada galima bus issinuomoti konkretu automobili
+- is anksto susitarti ir isnuomoti automobili (booking)
+- atsiskaityti uz nuoma kortele/grynais
