@@ -34,3 +34,17 @@ describe User do
 		account.lastname.should == "Steward"
 	end
 end
+
+describe User, "user_id" do
+	it "should be automaticly generated" do
+		account1 = User.new("account2","randompass2")
+		account1.user_id.should be_instance_of(Fixnum)
+	end
+
+	it "should be unique" do
+		account3 = User.new("account3","randompass3")
+		account4 = User.new("account4","randompass4")
+		account3.user_id.should_not == account4.user_id
+	end	
+	
+end
