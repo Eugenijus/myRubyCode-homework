@@ -1,4 +1,4 @@
-# vartotojas_spec.rb
+# user_spec.rb
 require 'rubygems'
 require 'spec'
 require 'user'

@@ -16,11 +16,13 @@ C) Pagrindines savybes:
 	- Vardas, Pavarde
 	- turi unikalu id
 		- paskutinis id issaugomas faile
+
 * Vartotojas gali itraukti automobili i automobiliu sarasa
 	- galima sukurti Automobilio objekta
 		Automobilis tures tokius duomenis:
 		- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
-	
+	- Visos masinos bus saugomos masyve
+
 * Valdymo sistema leidzia prisijungti/atsijungti vartotojui
 	
 * Vartotojas gali sukurti uzsakyma, kuris tures:
