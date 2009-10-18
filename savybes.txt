@@ -15,16 +15,19 @@ C) Pagrindines savybes:
 	- slaptazodis
 	- Vardas, Pavarde
 	- turi unikalu id
-	- duomenys issaugomi faile
-* Valdymo sistema leidzia prisijungti/atsijungti vartotojui
+		- paskutinis id issaugomas faile
 * Vartotojas gali itraukti automobili i automobiliu sarasa
-	Automobilis tures tokius duomenis:
-	- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
+	- galima sukurti Automobilio objekta
+		Automobilis tures tokius duomenis:
+		- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
+	
+* Valdymo sistema leidzia prisijungti/atsijungti vartotojui
 	
 * Vartotojas gali sukurti uzsakyma, kuris tures:
 	- paemimo data, laikas, paemimo vieta (garazai)
 	- grazinimo data, laikas, grazinimo vieta
 	- Kliento duomenys
+
 * Vartotojas gali israshyti saskaita:
 	Saskaita:
 	- uzsakymo nr.
