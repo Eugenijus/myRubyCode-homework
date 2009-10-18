@@ -21,6 +21,7 @@ C) Pagrindines savybes:
 	- galima sukurti Automobilio objekta
 		Automobilis tures tokius duomenis:
 		- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
+		- types: economy, compact, full-size, luxury, convertable, sports-car, minivan, pick-up-truck, van
 	- Visos masinos bus saugomos masyve
 
 * Valdymo sistema leidzia prisijungti/atsijungti vartotojui
