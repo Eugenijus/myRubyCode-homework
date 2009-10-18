@@ -1,10 +1,10 @@
 A) Automobiliu nuomavimo valdymo sistema.
 
-0) Vartotojas
-1) Automobilis
+0) Vartotojas - User
+1) Automobilis - Auto
 2) Garazas(ai)
-3) Klientas
-4) Uzsakymas
+3) Klientas - Client
+4) Uzsakymas - Order
 5) Kalendorius/Tvarkarastis
 
 B) SAVYBES:
