@@ -5,8 +5,15 @@ class File_helper
 	
 	def initialize(file_name)
 		@file_name = file_name
+		create_if_missing "users"
 	end
-	
+
+	def create_if_missing name
+		if File.directory?(name) == false
+			Dir.mkdir(name)
+		end
+	end 
+
 	def get_last_id
 		#read from file, find last id
 		file = nil
