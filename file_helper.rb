@@ -34,4 +34,23 @@ class File_helper
 
 		return tmp_id
 	end
+
+	def write_obj(obj)
+		if File.exists?(@file_name) == false
+			file = File.new(@file_name, "w")
+		end
+		if File.exists?(@file_name) == true
+			file = File.open(@file_name, "r+")
+			file.write(obj)
+			file.close
+		end
+	end
+
+	def clean
+		if File.exists?(@file_name) == true
+			file = File.delete(@file_name)
+			file = File.new(@file_name, "w")
+		end
+	end
+
 end
