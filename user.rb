@@ -16,7 +16,8 @@ class User
 		
 		serialize = self.to_yaml
 		@file_name = "users/" + @username.to_s + @user_id.to_s + ".txt"
-		filehelper = File_helper.new(@file_name)
+		filehelper = File_helper.new()
+		filehelper.file_name=@file_name
 		filehelper.write_obj(serialize)
 	end
 	

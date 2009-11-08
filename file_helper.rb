@@ -3,8 +3,7 @@
 class File_helper
 	attr_accessor :file_name
 	
-	def initialize(file_name)
-		@file_name = file_name
+	def initialize()
 		create_if_missing "users"
 	end
 
@@ -51,6 +50,24 @@ class File_helper
 			file.write(obj)
 			file.close
 		end
+	end
+	
+	def read_obj(file_name)
+	  if File.exists?(file_name) == false
+	    return null
+	  end
+    if File.exists?(file_name) == true
+      str = ""
+      file = File.open(file_name, "r+")
+      file.each_line do |line|
+        str += line
+      end
+      return str
+    end	  
+	end
+	
+	def read_obj_no_par
+      return read_obj(@file_name)	  
 	end
 
 	def clean
