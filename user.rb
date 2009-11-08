@@ -12,10 +12,12 @@ class User
 		@password = password
 		@name = "name"
 		@lastname = "lastname"
-		@user_id = File_helper.new("user_id.txt").get_last_id
+		fh = File_helper.new
+		fh.file_name="user_id.txt"
+		@user_id = fh.get_last_id
 		
 		serialize = self.to_yaml
-		@file_name = "users/" + @username.to_s + @user_id.to_s + ".txt"
+		@file_name = "users/" + "u_" + @username.to_s + @user_id.to_s + ".txt"
 		filehelper = File_helper.new()
 		filehelper.file_name=@file_name
 		filehelper.write_obj(serialize)
@@ -45,7 +47,8 @@ class User
 
 	def serialize_all
 		serialize = self.to_yaml
-		filehelper = File_helper.new(@file_name)
+		filehelper = File_helper.new
+		filehelper.file_name=@file_name
 		filehelper.clean
 		filehelper.write_obj(serialize)
 	end

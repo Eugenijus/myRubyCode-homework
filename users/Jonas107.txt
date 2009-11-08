@@ -1,7 +1,0 @@
---- !ruby/object:User 
-file_name: users/Jonas107.txt
-lastname: lastname
-name: name
-password: Jonikaitis
-user_id: 107
-username: Povilaitis

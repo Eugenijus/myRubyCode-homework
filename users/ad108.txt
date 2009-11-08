@@ -1,6 +1,0 @@
---- !ruby/object:User 
-lastname: lastname
-name: name
-password: ads
-user_id: 108
-username: ad
