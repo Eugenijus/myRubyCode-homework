@@ -15,11 +15,11 @@ class User_manager
   end
   
   def set_users(values)
-    values.each {|u|
+    values.each do |u|
       #if user.class == User.new.class
         @users.push(u)
       #end
-    }
+    end
   end
   
 end
