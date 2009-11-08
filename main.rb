@@ -24,13 +24,14 @@ require "user_manager"
 #puts y_obj.username
 
 #u = Ui.new
-um = User_manager.new
-u = User.new("jonas","asdsd")
-uj = User.new("petras","asdadsasdsd")
-arr = Array.new
-arr.push(u)
-arr.push(uj)
+#um = User_manager.new
+#u = User.new("jonas","asdsd")
+#uj = User.new("petras","asdadsasdsd")
+#arr = Array.new
+#arr.push(u)
+#arr.push(uj)
 
-um.set_users(arr)
-um.users.each {|u| print u.username; print " "; puts u.password}
+#um.set_users(arr)
+#um.users.each {|u| print u.username; print " "; puts u.password}
 #puts um.users.to_s
+uui = Ui.new

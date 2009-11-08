@@ -2,13 +2,17 @@
 # ui.rb
 
 require "user_manager"
-
+  
 class Ui
-    def initialize()
-      run      
-    end
+  attr_reader :um
+  
+  def initialize()
+      @um = User_manager.new
+
+      run
+  end
     
-    def run
+  def run
       i = 1
       while i!=0 do
         j = meniu1()
@@ -52,13 +56,14 @@ class Ui
       puts "Password:"
       p = gets
       
-      usr = User_manager.new.add_user(u,p)
+      usr = @um.add_user(u,p)
 
       if usr == nil
         puts "Error: User already exists";
         return -1;
       end
-      puts "Successfuly created!"  
+      print "Successfuly created User: "
+      puts usr.username
       return 0;
     end
     
@@ -71,13 +76,19 @@ class Ui
       puts "Password:"
       p = gets
       
-      if !(check_login_info(u,p) > 0)
+      if check_login_info(u,p) == -1
         return -1;
       end
       meniu4
     end
     
     def check_login_info(username, password)
+      usr = @um.find_user(username)
+      if usr != nil
+        if usr.password == password
+          return 0;
+        end
+      end
       puts "Error: wrong username or password!"
       return -1
     end
@@ -89,6 +100,6 @@ class Ui
       puts "3.Customers"
       puts "0.Exit"
       n = gets.to_i
-       
+      return 0; 
     end
 end
