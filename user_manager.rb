@@ -10,7 +10,7 @@ class User_manager
   
   def initialize()
     @users = Array.new
-    @users_file = "users/all_users.txt"
+    @users_file = "data/all_users.txt"
     @fh = File_helper.new
     @fh.file_name=@users_file
     load_users
@@ -67,12 +67,11 @@ class User_manager
   end
   
   def print_users
+    i = 1
     @users.each do |u| 
-      print u.username
-      print ": "
-      print u.name
-      print ", "
-      puts u.lastname
+      print "#{i} "
+      puts u.to_string
+      i = i+1
     end
   end
 end

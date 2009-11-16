@@ -7,6 +7,7 @@ require "order"
 require "ui"
 require "file_helper"
 require "user_manager"
+require "auto_types"
 
 #o = Order.new("2009-10-12 19:00", "2009-10-13 19:00",1,2)
 #puts o.to_string
@@ -37,14 +38,12 @@ require "user_manager"
 #um.set_users(arr)
 #um.users.each {|u| print u.username; print " "; puts u.password}
 #puts um.users.to_s
-uui = Ui.new
+#uui = Ui.new
 #uui.get_console_string("asd:")
 #
 
 
-#TODO: User class shouldn't save serialized objects, User_manager should do that
-#User class should be clean
-#Create Auto_manager, it will show all cars and will save them into file
+#TODO: Create Auto_manager, it will show all cars and will save them into file
 #How Orders should be saved?
 #Create Client class, Client_manager
 #rake -T

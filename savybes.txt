@@ -10,21 +10,26 @@ A) Automobiliu nuomavimo valdymo sistema.
 B) SAVYBES:
 
 C) Pagrindines savybes:
+
+PADARYTA:
+
 * Valdymo sistema leidzia sukurti vartotoja
 	- vartotojo vardas
 	- slaptazodis
 	- Vardas, Pavarde
 	- turi unikalu id
 		- paskutinis id issaugomas faile
+	
+* Valdymo sistema leidzia prisijungti/atsijungti vartotojui
+================================================================
+NEPADARYTA:
 
 * Vartotojas gali itraukti automobili i automobiliu sarasa
 	- galima sukurti Automobilio objekta
 		Automobilis tures tokius duomenis:
-		- id, Marke, Reg. numeri, klase(sportinis, verslo, visureigis, seimos), spalva
+		- id, Marke, Reg. numeri, tipas, spalva
 		- types: economy, compact, full-size, luxury, convertable, sports-car, minivan, pick-up-truck, van
 	- Visos masinos bus saugomos masyve
-
-* Valdymo sistema leidzia prisijungti/atsijungti vartotojui
 	
 * Vartotojas gali sukurti uzsakyma, kuris tures:
 	- paemimo data, laikas, paemimo vieta (garazai)

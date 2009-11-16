@@ -13,7 +13,7 @@ class User
 		@name = name
 		@lastname = lastname
 		fh = File_helper.new
-		fh.file_name="user_id.txt"
+		fh.file_name="data/user_id.txt"
 		@user_id = fh.get_last_id
 		
 		#serialize = self.to_yaml
@@ -44,7 +44,15 @@ class User
 		#serialize_all
 	end
 	#end setters
-
+  
+	def to_string
+	  s = "id: #{user_id}, "
+	  s = s + "username: #{username}, "
+	  s = s + "name: #{name}, "
+	  s = s + "lastname: #{lastname}"
+	  return s
+	end
+	
 	#def serialize_all
 		#serialize = self.to_yaml
 		#filehelper = File_helper.new

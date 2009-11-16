@@ -13,10 +13,11 @@ class Order
 	end
 	
 	def to_string
-		s = "pickup date is: #{@pickup_date}, "
-		s = s + "return date is: #{@return_date}, "
-		s = s + "garage_id is: #{@garage_id}, "
-		s = s + "clien_id is: #{@client_id}"
+		s = "order id: #{id}, "
+		s = s + "pickup date: #{@pickup_date}, "
+		s = s + "return date: #{@return_date}, "
+		s = s + "garage_id: #{@garage_id}, "
+		s = s + "clien_id: #{@client_id}"
 		return s
 	end
 end

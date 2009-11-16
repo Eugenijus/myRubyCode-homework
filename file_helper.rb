@@ -4,7 +4,7 @@ class File_helper
 	attr_reader :file_name
 	
 	def initialize()
-		create_if_missing "users"
+		create_if_missing "data"
 	end
 
 	def create_if_missing name

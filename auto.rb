@@ -3,16 +3,18 @@
 require "file_helper"
 
 class Auto
-	attr_accessor :reg_num, :brand, :name, :type, :color
+	attr_accessor :reg_num, :brand, :model, :type, :color
 	attr_reader :auto_id
 	
-	def initialize(reg_num, brand, name, type, color)
-		@reg_num = reg_num
-		@brand = brand
-		@name = name
-		@type = type
-		@color = color
-		@auto_id = File_helper.new("auto_id.txt").get_last_id
+	def initialize(reg_num, brand, model, type, color)
+		@reg_num = reg_num #245FGH
+		@brand = brand  #BMW, Mercedes-Benz
+		@model = model  #z350
+		@type = type  #string from auto_types
+		@color = color  #black, silver, white, red
+		fh = File_helper.new
+		fh.file_name="data/auto_id.txt"
+    @auto_id = fh.get_last_id
 	end
 	
 end
