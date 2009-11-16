@@ -38,7 +38,7 @@ require "auto_types"
 #um.set_users(arr)
 #um.users.each {|u| print u.username; print " "; puts u.password}
 #puts um.users.to_s
-#uui = Ui.new
+uui = Ui.new
 #uui.get_console_string("asd:")
 #
 

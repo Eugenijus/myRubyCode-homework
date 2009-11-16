@@ -2,6 +2,7 @@
 # ui.rb
 
 require "user_manager"
+require "auto_manager"
   
 class Ui
   attr_reader :um, :am
