@@ -22,12 +22,15 @@ class Ui
         
         while j>0 do
           case j
-            when 1
-              j = meniu2()
-            when 2
-              j = meniu3()
-            else
-              j = 0
+          when 1
+            j = meniu2()
+          when 2
+            j = meniu3()
+          when 3
+            @um.print_users
+            j = 0 
+          else
+            j = 0
           end #end of case
         end #end of while
       end #end of while
@@ -39,24 +42,23 @@ class Ui
     #2.Login
     #0.Exit
     def meniu1
-      puts "1.Create user\n2.Login\n0.Exit"
+      puts "1.Create user\n2.Login\n3.Print all users\n0.Exit"
       n = gets.to_i
-      if !(n>0 && n<3) then
+      if !(n>0 && n<4) then
         n = -1 #out of bounds error
       end
       return n;
     end
     
+    #Creates a new User
     #Console Meniu2
-    #Username: 
-    #Password:
     def meniu2
-      puts "Username:"
-      u = gets
-      puts "Password:"
-      p = gets
+      u = get_console_string("Username:")
+      p = get_console_string("Password:")
+      n = get_console_string("Name:")
+      l = get_console_string("Lastname:")
       
-      usr = @um.add_user(u,p)
+      usr = @um.add_user(u,p,n,l)
 
       if usr == nil
         puts "Error: User already exists";
@@ -71,10 +73,8 @@ class Ui
     #Username:
     #Password:
     def meniu3
-      puts "Username:"
-      u = gets
-      puts "Password:"
-      p = gets
+      u = get_console_string("Username:")
+      p = get_console_string("Password:")
       
       if check_login_info(u,p) == -1
         return -1;
@@ -101,5 +101,13 @@ class Ui
       puts "0.Exit"
       n = gets.to_i
       return 0; 
+    end
+    
+    def get_console_string(msg)
+      puts msg
+      str = ""
+      str = gets
+      str.chomp!
+      return str
     end
 end

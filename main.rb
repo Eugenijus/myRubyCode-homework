@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 # main.rb
-
+require 'yaml'
 require "user"
 require "auto"
 require "order"
@@ -25,13 +25,27 @@ require "user_manager"
 
 #u = Ui.new
 #um = User_manager.new
-#u = User.new("jonas","asdsd")
-#uj = User.new("petras","asdadsasdsd")
+#u = User.new("jonas","asdsd","asd","asd")
+#uj = User.new("petras","asdadsasdsd","asd","asd")
 #arr = Array.new
 #arr.push(u)
 #arr.push(uj)
-
+#y_arr = arr.to_yaml
+#f = File_helper.new()
+#f.file_name="users/all_users2.txt"
+#f.write_obj(y_arr)
 #um.set_users(arr)
 #um.users.each {|u| print u.username; print " "; puts u.password}
 #puts um.users.to_s
 uui = Ui.new
+#uui.get_console_string("asd:")
+#
+
+
+#TODO: User class shouldn't save serialized objects, User_manager should do that
+#User class should be clean
+#Create Auto_manager, it will show all cars and will save them into file
+#How Orders should be saved?
+#Create Client class, Client_manager
+#rake -T
+#rake examples_with_rcov

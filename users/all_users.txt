@@ -1,0 +1,19 @@
+--- 
+- !ruby/object:User 
+  lastname: Sabaliauskas
+  name: Eugenijus
+  password: pass
+  user_id: 181
+  username: admin
+- !ruby/object:User 
+  lastname: Useris
+  name: Naujas
+  password: pass
+  user_id: 182
+  username: user1
+- !ruby/object:User 
+  lastname: Jonikaitis
+  name: Jonas
+  password: pass
+  user_id: 183
+  username: jonas

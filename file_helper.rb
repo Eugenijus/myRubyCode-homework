@@ -1,7 +1,7 @@
 # file_helper.rb
 
 class File_helper
-	attr_accessor :file_name
+	attr_reader :file_name
 	
 	def initialize()
 		create_if_missing "users"
@@ -12,11 +12,20 @@ class File_helper
 			Dir.mkdir(name)
 		end
 	end 
-
+  
+	def file_name=(value)
+	  @file_name = value
+    if File.exists?(@file_name) == false then
+      puts "#{@file_name} doesn't exist"
+      file = File.new(@file_name, "w")
+      puts "#{@file_name} created"
+    end
+	end
+	
 	def get_last_id
 		#read from file, find last id
 		file = nil
-		if File.exists?(@file_name) == false
+		if File.exists?(@file_name) == false then
 			puts "#{@file_name} doesn't exist"
 			file = File.new(@file_name, "w")
 			puts "#{@file_name} created"
@@ -54,7 +63,8 @@ class File_helper
 	
 	def read_obj(file_name)
 	  if File.exists?(file_name) == false
-	    return null
+	    puts "Error: #{file_name} doesn't exist"
+	    return nil
 	  end
     if File.exists?(file_name) == true
       str = ""
@@ -69,7 +79,7 @@ class File_helper
 	def read_obj_no_par
       return read_obj(@file_name)	  
 	end
-
+	
 	def clean
 		if File.exists?(@file_name) == true
 			file = File.delete(@file_name)
