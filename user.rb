@@ -46,10 +46,10 @@ class User
 	#end setters
   
 	def to_string
-	  s = "id: #{user_id}, "
-	  s = s + "username: #{username}, "
-	  s = s + "name: #{name}, "
-	  s = s + "lastname: #{lastname}"
+	  s = "id: #{@user_id}, "
+	  s = s + "username: #{@username}, "
+	  s = s + "name: #{@name}, "
+	  s = s + "lastname: #{@lastname}"
 	  return s
 	end
 	

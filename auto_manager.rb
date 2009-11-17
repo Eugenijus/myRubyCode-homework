@@ -24,7 +24,7 @@ class Auto_manager
     if find_car(reg_num) == nil then
       true_type = ""
       if type.class == Fixnum
-        true_type = at.types[type]
+        true_type = @at.types[type]
       end
             
       c = Auto.new(reg_num, brand, model, true_type, color)

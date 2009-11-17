@@ -1,0 +1,22 @@
+--- 
+- !ruby/object:Auto 
+  auto_id: 4
+  brand: VW
+  color: Red
+  model: Golf
+  reg_num: 245FBE
+  type: full-size
+- !ruby/object:Auto 
+  auto_id: 5
+  brand: Nissan
+  color: Orange
+  model: z350
+  reg_num: 222IED
+  type: sports-car
+- !ruby/object:Auto 
+  auto_id: 6
+  brand: Mercedes-Benz
+  color: Black
+  model: CLC 220
+  reg_num: 111EEE
+  type: luxury

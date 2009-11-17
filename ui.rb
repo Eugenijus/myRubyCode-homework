@@ -103,24 +103,68 @@ class Ui
     #User is loged in, Main Meniu
     #Console Meniu4
     def meniu4
-      puts "1.Edit Your info"
-      puts "2.Autos"
-      puts "3.Customers"
-      puts "0.Exit"
-      n = gets.to_i
-      return 0; 
+      n = 1
+      
+      while(n>0) do
+        puts "1.Edit Your info"
+        puts "2.Autos"
+        puts "3.Customers"
+        puts "0.Go back"
+        n = gets.to_i
+        case n  
+        when 1:
+          n = 1
+        when 2:
+          n = autos_meniu()    
+        when 3:
+          n = 1
+        else
+          n = 0      
+        end
+              end
+      
+      return 0;
     end
     
-    def edit_meniu(manager_type)
-      
-      puts ""
+    def autos_meniu()
       puts "1.Add"
-      puts "2.Edit"
-      puts "3.Delete"
-      puts "0.Exit"
+      puts "2.View all Cars"
+      #puts "3.Edit"
+      #puts "4.Delete"
+      puts "0.Go back"
       
       n = gets.to_i
-      return 0;      
+      # range n can be 0 or 1
+      case n
+      when 1:
+        reg_num = get_console_string("Registration Number:")
+        brand = get_console_string("Brand:")
+        model = get_console_string("Model:")
+        puts("Type: [Select number]")
+        i = 1
+        at = Auto_types.new
+        at.types.each do |t|
+          print i
+          print "."
+          print t
+          print " "
+          i=i+1
+        end
+        type = gets.to_i-1
+        puts at.types[type]
+        color = get_console_string("Color:")
+        @am.add_car(reg_num, brand, model, type, color)
+        puts "Successfuly added car!"
+        return 1      
+      when 2:
+        @am.print_cars
+        return 1
+      when 0:
+        return 1
+      else
+        return -1        
+      end
+      return 0;
     end
     
     def add_meniu

@@ -21,8 +21,6 @@ PADARYTA:
 		- paskutinis id issaugomas faile
 	
 * Valdymo sistema leidzia prisijungti/atsijungti vartotojui
-================================================================
-NEPADARYTA:
 
 * Vartotojas gali itraukti automobili i automobiliu sarasa
 	- galima sukurti Automobilio objekta
@@ -30,7 +28,9 @@ NEPADARYTA:
 		- id, Marke, Reg. numeri, tipas, spalva
 		- types: economy, compact, full-size, luxury, convertable, sports-car, minivan, pick-up-truck, van
 	- Visos masinos bus saugomos masyve
-	
+================================================================
+NEPADARYTA:
+
 * Vartotojas gali sukurti uzsakyma, kuris tures:
 	- paemimo data, laikas, paemimo vieta (garazai)
 	- grazinimo data, laikas, grazinimo vieta

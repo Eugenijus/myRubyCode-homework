@@ -17,4 +17,14 @@ class Auto
     @auto_id = fh.get_last_id
 	end
 	
+	def to_string
+    s = "id: #{@auto_id}, "
+    s = s + "Reg.Num: #{@reg_num}, "
+    s = s + "Brand: #{@brand}, "
+    s = s + "Model: #{@model}, "
+    s = s + "Type: #{@type}, "
+    s = s + "Color: #{@color}"
+    return s    	  
+	end
+	
 end
