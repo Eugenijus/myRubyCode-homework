@@ -215,7 +215,9 @@ class Ui
       n = gets.to_i
       case n
       when 1:
-        pickup_date = get_console_string("Pickup Date: ")
+        return 1
+	#order has few dependencies
+	pickup_date = get_console_string("Pickup Date: ")
         return_date = get_console_string("Return Date: ")
         
         auto_id = get_console_string("Auto id: ")
