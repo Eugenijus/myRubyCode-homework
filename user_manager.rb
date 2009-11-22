@@ -69,7 +69,7 @@ class User_manager
   def print_users
     i = 1
     @users.each do |u| 
-      print "#{i} "
+      print "#{i}. "
       puts u.to_string
       i = i+1
     end

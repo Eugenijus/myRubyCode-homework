@@ -3,13 +3,17 @@
 
 require "user_manager"
 require "auto_manager"
+require "client_manager"
+require "order_manager"
   
 class Ui
-  attr_reader :um, :am
+  attr_reader :um, :am, :cm, :om
   
   def initialize()
       @um = User_manager.new
       @am = Auto_manager.new
+      @cm = Client_manager.new
+      @om = Order_manager.new
       run
   end
     
@@ -108,7 +112,7 @@ class Ui
       while(n>0) do
         puts "1.Edit Your info"
         puts "2.Autos"
-        puts "3.Customers"
+        puts "3.Clients"
         puts "4.Orders"
         puts "0.Go back"
         n = gets.to_i
@@ -118,7 +122,7 @@ class Ui
         when 2:
           n = autos_meniu()    
         when 3:
-          n = 1
+          n = clients_meniu()
         when 4:
           n = 1
         else
@@ -171,30 +175,68 @@ class Ui
       return 0;
     end
     
-    def add_meniu
+    def clients_meniu
+      puts "1.Add"
+      puts "2.View all Clients"
+      #puts "3.Edit"
+      #puts "4.Delete"
+      puts "0.Go back"
       
-    end
-    
-    def delete_meniu(i)
-      if get_manager(i)!= nil then
-        
-      end
-    end
-    
-    def get_manager(i)
-      case i
+      n = gets.to_i
+      case n
       when 1:
-        return @um
+        name = get_console_string("Name: ")
+        lastname = get_console_string("Lastname: ")
+        phone_num = get_console_string("Phone num.: ")
+        soc_id = get_console_string("Social id.: ")
+        driving_license_id = get_console_string("Driving License id.: ")
+        @cm.add_client(name, lastname, phone_num, soc_id, driving_license_id)
+        puts "Successfuly added client!"
+        return 1      
       when 2:
-        return @am
-      when 3:
-        return 0
+        @cm.print_clients
+        puts ""
+        return 1
+      when 0:
+        return 1
       else
         return -1        
-      end
+      end        
+      return 0;            
     end
     
-    def get_console_string(msg)
+    def orders_meniu
+      puts "1.Add"
+      puts "2.View all Orders"
+      #puts "3.Edit"
+      #puts "4.Delete"
+      puts "0.Go back"
+      
+      n = gets.to_i
+      case n
+      when 1:
+        pickup_date = get_console_string("Pickup Date: ")
+        return_date = get_console_string("Return Date: ")
+        
+        auto_id = get_console_string("Auto id: ")
+        garage_id = get_console_string("Garage id: ")
+        client_id = get_console_string("Client id: ")
+        @om.add_order(pickup_date, return_date, auto_id, garage_id, client_id)
+        puts "Successfuly added order!"
+        return 1      
+      when 2:
+        @om.print_orders
+        puts ""
+        return 1
+      when 0:
+        return 1
+      else
+        return -1        
+      end        
+      return 0; 
+    end
+    
+    def return_date(msg)
       puts msg
       str = ""
       str = gets

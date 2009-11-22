@@ -77,7 +77,7 @@ class Auto_manager
   def print_cars
     i = 1
     @cars.each do |c| 
-      print "#{i} "
+      print "#{i}. "
       puts c.to_string
       i = i+1
     end
