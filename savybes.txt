@@ -28,6 +28,12 @@ PADARYTA:
 		- id, Marke, Reg. numeri, tipas, spalva
 		- types: economy, compact, full-size, luxury, convertable, sports-car, minivan, pick-up-truck, van
 	- Visos masinos bus saugomos masyve
+	
+Klientas:
+- butinai turi pateikti:
+	- Varda, Pavarde, tel. nr., pasa (asm. kodas), vairavimo teises (nr.)
+- gali pateikti papildomai:
+	- el. pastas, gyv. adresa,	
 ================================================================
 NEPADARYTA:
 
@@ -70,11 +76,7 @@ Kalendorius/Tvarkarastis:
 - kokie automobiliai siandien isnuomojami/grazinami
 - kokie automobiliai sia savaite isnuomojami/grazinami
 
-Klientas:
-- butinai turi pateikti:
-	- Varda, Pavarde, tel. nr., pasa (asm. kodas), vairavimo teises (nr.)
-- gali pateikti papildomai:
-	- el. pastas, gyv. adresa,
+Klientas
 - gali pasirinkti:
 	- masina, garaza is kur paims (is Vilniaus, ar is Kauno)
 	- Su navigacine iranga, ar be

@@ -3,13 +3,14 @@
 require "file_helper"
 
 class Order
-	attr_accessor :pickup_date, :return_date, :garage_id, :client_id
+	attr_accessor :pickup_date, :return_date, :auto_id, :garage_id, :client_id
 	attr_reader :order_id
 	
-	def initialize(pickup_date, return_date, garage_id, client_id)
+	def initialize(pickup_date, return_date, auto_id, garage_id, client_id)
 		@pickup_date = pickup_date
 		@return_date = return_date
-		@garage_id = garage_id
+		@auto_id = auto_id
+    @garage_id = garage_id
 		@client_id = client_id
 		
     fh = File_helper.new
@@ -21,6 +22,7 @@ class Order
 		s = "id: #{@order_id}, "
 		s = s + "pickup date: #{@pickup_date}, "
 		s = s + "return date: #{@return_date}, "
+    s = s + "auto_id: #{@auto_id}, "		
 		s = s + "garage_id: #{@garage_id}, "
 		s = s + "client_id: #{@client_id}"
 		return s

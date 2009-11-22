@@ -109,6 +109,7 @@ class Ui
         puts "1.Edit Your info"
         puts "2.Autos"
         puts "3.Customers"
+        puts "4.Orders"
         puts "0.Go back"
         n = gets.to_i
         case n  
@@ -117,6 +118,8 @@ class Ui
         when 2:
           n = autos_meniu()    
         when 3:
+          n = 1
+        when 4:
           n = 1
         else
           n = 0      
@@ -158,6 +161,7 @@ class Ui
         return 1      
       when 2:
         @am.print_cars
+        puts ""
         return 1
       when 0:
         return 1
