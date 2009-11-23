@@ -76,11 +76,16 @@ class Auto_manager
   
   def print_cars
     i = 1
+    if @cars.length == 0 then
+      puts "There are no cars!"
+      return -1
+    end    
     @cars.each do |c| 
       print "#{i}. "
       puts c.to_string
       i = i+1
     end
+    return 1
   end
   
 end

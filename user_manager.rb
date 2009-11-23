@@ -20,12 +20,16 @@ class User_manager
     if find_user(username) == nil then
       u = User.new(username,password,name,lastname)
       @users.push(u)
-      y_u = YAML::dump(@users)
-      @fh.clean
-      @fh.write_obj(y_u)
+      save_users()
       return u
     end
     return nil
+  end
+  
+  def save_users()
+    y_u = YAML::dump(@users)
+    @fh.clean
+    @fh.write_obj(y_u)
   end
   
   def find_user(username)
@@ -46,6 +50,7 @@ class User_manager
     end
   end
   
+  #from file to array
   def load_users
     str = @fh.read_obj_no_par
     if str!=nil && str.size>0 then
@@ -64,6 +69,29 @@ class User_manager
     end
     puts "No users were found!"
     return -1
+  end
+  
+  def delete_at(i)
+    if @users.length > i then
+      @users[i] = nil
+      @users = @users.compact #removes nils
+      save_users
+    end
+  end
+  
+  def delete_user(username)
+    u = find_user(username)
+    i = what_is_index_of(u.username)
+    delete_at(i)
+  end
+  
+  def what_is_index_of(username)
+    i = 0
+    while (i<@users.length) do
+      if @users.at(i).username.eql?(username) then
+        return i
+      end
+      i=i+1    end
   end
   
   def print_users

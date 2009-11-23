@@ -1,8 +1,9 @@
 # auto_spec.rb
-require "rubygems"
-require "spec"
-require "auto"
-require "auto_types"
+require 'rubygems'
+require 'spec'
+require 'auto'
+require 'auto_types'
+require 'auto_manager'
 
 describe Auto do
 	it "should let create a new Auto object" do
@@ -22,3 +23,13 @@ describe Auto do
 	end
 
 end
+
+describe Auto_manager do
+  it "should let create auto_manager" do
+    am = Auto_manager.new
+  end
+  
+  it "should store all cars in array" do
+    am = Auto_manager.new
+    am.cars.should be_instance_of(Array)
+  endend

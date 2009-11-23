@@ -2,7 +2,7 @@ A) Automobiliu nuomavimo valdymo sistema.
 
 0) Vartotojas - User
 1) Automobilis - Auto
-2) Garazas(ai)
+2) Garazas(ai) - Garage
 3) Klientas - Client
 4) Uzsakymas - Order
 5) Kalendorius/Tvarkarastis
@@ -33,14 +33,16 @@ Klientas:
 - butinai turi pateikti:
 	- Varda, Pavarde, tel. nr., pasa (asm. kodas), vairavimo teises (nr.)
 - gali pateikti papildomai:
-	- el. pastas, gyv. adresa,	
-================================================================
-NEPADARYTA:
-
+	- el. pastas, gyv. adresa,
+	
 * Vartotojas gali sukurti uzsakyma, kuris tures:
 	- paemimo data, laikas, paemimo vieta (garazai)
 	- grazinimo data, laikas, grazinimo vieta
-	- Kliento duomenys
+	- Kliento duomenys (kliento id)
+================================================================
+NEPADARYTA:
+
+
 
 * Vartotojas gali israshyti saskaita:
 	Saskaita:

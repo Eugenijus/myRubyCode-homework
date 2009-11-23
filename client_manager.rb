@@ -2,8 +2,8 @@
 # client_manager.rb
 
 require 'yaml'
-require "file_helper"
-require "client"
+require 'file_helper'
+require 'client'
 class Client_manager
   attr_reader :clients, :clients_file, :fh
   
@@ -64,11 +64,16 @@ class Client_manager
   
   def print_clients
     i = 1
+    if @clients.length == 0 then
+      puts "There are no clients!"
+      return -1
+    end
     @clients.each do |c| 
       print "#{i}. "
       puts c.to_string
       i = i+1
     end
+    return 1
   end
   
 end

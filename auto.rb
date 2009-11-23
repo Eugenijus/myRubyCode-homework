@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 # auto.rb
-require "file_helper"
+require 'file_helper'
 
 class Auto
 	attr_accessor :reg_num, :brand, :model, :type, :color

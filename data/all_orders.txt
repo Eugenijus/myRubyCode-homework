@@ -1,0 +1,8 @@
+--- 
+- !ruby/object:Order 
+  auto_id: 4
+  client_id: 12
+  garage_id: 1
+  order_id: 4
+  pickup_date: "2009-12-01"
+  return_date: "2009-12-02"

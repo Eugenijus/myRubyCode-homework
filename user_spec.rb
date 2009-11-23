@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'spec'
 require 'user'
+require 'user_manager'
  
 describe User do
 	it "should let create new user" do
@@ -47,4 +48,21 @@ describe User, "user_id" do
 		account3.user_id.should_not == account4.user_id
 	end	
 	
+end
+
+describe User_manager do
+	it "should let create user_manager" do
+		um = User_manager.new
+	end
+	
+	it "should store all users in file and should always load all users" do
+		um = User_manager.new
+		um.users.should be_instance_of(Array)
+		um.add_user("username","password", "name", "lastname")
+		um = nil
+		
+		um2 = User_manager.new
+		um2.find_user("username").should be_instance_of(User)
+		um2.delete_user("username")
+	end
 end

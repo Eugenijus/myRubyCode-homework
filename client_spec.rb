@@ -1,7 +1,7 @@
-# client_spec.rb
-require "rubygems"
-require "spec"
-require "client"
+#client_spec.rb
+require 'rubygems'
+require 'spec'
+require 'client'
 
 describe Client do
   it "should let create new client" do

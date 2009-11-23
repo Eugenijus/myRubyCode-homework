@@ -1,19 +1,21 @@
 #!/usr/bin/ruby -w
 # ui.rb
 
-require "user_manager"
-require "auto_manager"
-require "client_manager"
-require "order_manager"
+require 'user_manager'
+require 'auto_manager'
+require 'client_manager'
+require 'order_manager'
+require 'garage'
   
 class Ui
-  attr_reader :um, :am, :cm, :om
+  attr_reader :um, :am, :cm, :om, :garage
   
   def initialize()
       @um = User_manager.new
       @am = Auto_manager.new
       @cm = Client_manager.new
       @om = Order_manager.new
+      @garage = Garage.new("124 Ruby road", "10211 New York, USA", "123456543")
       run
   end
     
@@ -124,7 +126,7 @@ class Ui
         when 3:
           n = clients_meniu()
         when 4:
-          n = 1
+          n = orders_meniu
         else
           n = 0      
         end
@@ -215,16 +217,30 @@ class Ui
       n = gets.to_i
       case n
       when 1:
-        return 1
-	#order has few dependencies
-	pickup_date = get_console_string("Pickup Date: ")
+        #order has few dependencies
+        pickup_date = get_console_string("Pickup Date: ")
         return_date = get_console_string("Return Date: ")
-        
-        auto_id = get_console_string("Auto id: ")
-        garage_id = get_console_string("Garage id: ")
-        client_id = get_console_string("Client id: ")
-        @om.add_order(pickup_date, return_date, auto_id, garage_id, client_id)
-        puts "Successfuly added order!"
+        #choose garage
+        print "1. "
+        puts @garage.to_string
+        garage_id = get_console_int("Garage id: ")
+        if garage_id != 1
+          return 1
+        end
+        #print all cars
+        if @am.print_cars == -1 then
+          return 1
+        end
+        auto_id = get_console_int("Auto id: ")
+        #print all clients
+        if @cm.print_clients == -1 then
+          return 1
+        end
+        client_id = get_console_int("Client id: ")
+        o = @om.add_order(pickup_date, return_date, auto_id, garage_id, client_id)
+        if o != nil then
+          puts "Successfuly added order!"
+        end
         return 1      
       when 2:
         @om.print_orders
@@ -238,7 +254,16 @@ class Ui
       return 0; 
     end
     
-    def return_date(msg)
+    def get_console_int(msg)
+      puts msg
+      i = gets.to_i
+      if i.class == Fixnum
+        return i
+      end
+      return nil
+    end
+    
+    def get_console_string(msg)
       puts msg
       str = ""
       str = gets

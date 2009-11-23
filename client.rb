@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 # client.rb
-require "file_helper"
+require 'file_helper'
 
 class Client
   attr_accessor :name, :lastname, :phone_num, :soc_id, :driving_license_id, :email, :address
