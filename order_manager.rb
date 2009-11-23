@@ -16,6 +16,9 @@ class Order_manager
   end
 
   def add_order(pickup_date, return_date, auto_id, garage_id, client_id)
+    if check_dates == -1 then
+      return nil
+    end
     if find_order(pickup_date, auto_id) == nil then
       o = Order.new(pickup_date, return_date, auto_id, garage_id, client_id)
       @orders.push(o)
@@ -26,6 +29,18 @@ class Order_manager
     end
     puts "Auto #{auto_id} is reserved!"
     return nil
+  end
+  
+  def check_dates(pickup_date, return_date)
+    if !pickup_date.instance_of?(Date) then
+      puts "Pickup Date is of wrong format!"
+      return -1
+    end
+    if !return_date.instance_of?(Date) then
+      puts "Return Date is of wrong format!"
+      return -1
+    end
+    return 1
   end
     
   def find_order(pickup_date, auto_id)

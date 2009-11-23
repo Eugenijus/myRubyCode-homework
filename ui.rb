@@ -218,8 +218,16 @@ class Ui
       case n
       when 1:
         #order has few dependencies
-        pickup_date = get_console_string("Pickup Date: ")
+        pickup_date = get_console_date("Pickup Date:")
+        if pickup_date == nil
+          puts "wrong date format!"
+          return 1
+        end
         return_date = get_console_string("Return Date: ")
+        if return_date == nil
+          puts "wrong date format!"
+          return 1
+        end
         #choose garage
         print "1. "
         puts @garage.to_string
@@ -254,8 +262,27 @@ class Ui
       return 0; 
     end
     
-    def get_console_int(msg)
+    def get_console_date(msg)
       puts msg
+      y = get_console_int("Year:")
+      if y == nil
+        return nil
+      end
+      m = get_console_int("Month:")
+      if m == nil
+          return nil
+      end
+      d = get_console_int("Day:")
+      if d == nil
+          return nil
+      end
+      date1 = Date.new(y,m,d)
+      return date1
+    end
+    
+    def get_console_int(msg)
+      print msg
+      print " "
       i = gets.to_i
       if i.class == Fixnum
         return i

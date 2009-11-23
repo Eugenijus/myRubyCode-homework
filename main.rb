@@ -38,10 +38,19 @@ require "auto_types"
 #um.set_users(arr)
 #um.users.each {|u| print u.username; print " "; puts u.password}
 #puts um.users.to_s
-uui = Ui.new
+#uui = Ui.new
 #uui.get_console_string("asd:")
 #
-
+puts Time.now
+t = Time.new
+puts t.year
+d = Date.new(2009, 11, 2)
+d2 = Date.new(2009, 12, 3)
+puts d
+puts d2
+puts d-d2
+puts d2-d
+#u = Ui.new
 
 #TODO: Create Auto_manager, it will show all cars and will save them into file
 #How Orders should be saved?
