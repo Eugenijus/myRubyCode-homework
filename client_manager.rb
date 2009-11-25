@@ -69,7 +69,6 @@ class Client_manager
       return -1
     end
     @clients.each do |c| 
-      print "#{i}. "
       puts c.to_string
       i = i+1
     end

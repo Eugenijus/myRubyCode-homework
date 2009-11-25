@@ -46,6 +46,15 @@ class Auto_manager
     return nil
   end
   
+  def find_car_by_id(auto_id)
+    @cars.each do |c|
+      if c.auto_id == auto_id
+        return c
+      end
+    end
+    return nil
+  end
+  
   #===
   
   def set_cars(values)
@@ -77,11 +86,10 @@ class Auto_manager
   def print_cars
     i = 1
     if @cars.length == 0 then
-      puts "There are no cars!"
+      puts "There are no Cars!"
       return -1
     end    
-    @cars.each do |c| 
-      print "#{i}. "
+    @cars.each do |c|
       puts c.to_string
       i = i+1
     end

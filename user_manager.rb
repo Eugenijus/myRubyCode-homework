@@ -96,8 +96,11 @@ class User_manager
   
   def print_users
     i = 1
+    if @users.length == 0 then
+      puts "There are no Users!"
+      return -1
+    end  
     @users.each do |u| 
-      print "#{i}. "
       puts u.to_string
       i = i+1
     end

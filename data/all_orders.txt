@@ -2,7 +2,7 @@
 - !ruby/object:Order 
   auto_id: 4
   client_id: 12
-  garage_id: 1
-  order_id: 4
-  pickup_date: "2009-12-01"
-  return_date: "2009-12-02"
+  garage_id: 0
+  order_id: 112
+  pickup_time: 2009-11-25 12:11:00 +02:00
+  return_time: 2009-11-26 12:00:00 +02:00

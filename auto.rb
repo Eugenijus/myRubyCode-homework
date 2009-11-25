@@ -18,7 +18,7 @@ class Auto
 	end
 	
 	def to_string
-    s = "id: #{@auto_id}, "
+    s = "ID: #{@auto_id}, "
     s = s + "Reg.Num: #{@reg_num}, "
     s = s + "Brand: #{@brand}, "
     s = s + "Model: #{@model}, "

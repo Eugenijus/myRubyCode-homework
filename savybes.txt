@@ -39,18 +39,18 @@ Klientas:
 	- paemimo data, laikas, paemimo vieta (garazai)
 	- grazinimo data, laikas, grazinimo vieta
 	- Kliento duomenys (kliento id)
-================================================================
-NEPADARYTA:
-
-
-
+	
 * Vartotojas gali israshyti saskaita:
 	Saskaita:
 	- uzsakymo nr.
 	- paskaiciuotas nuomos laikas (dienos, valandos)
 	- nuomos tarifas,
-	- papildomos paslaugos
 	- totali suma
+================================================================
+NEPADARYTA:
+
+Vartotojas gali israshyti saskaita:
+	- papildomos paslaugos
 
 Valdymo sistema turi:
 - leisti redaguoti/trinti vartotojus ir ju duomenis

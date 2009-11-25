@@ -46,7 +46,7 @@ class User
 	#end setters
   
 	def to_string
-	  s = "id: #{@user_id}, "
+	  s = "ID: #{@user_id}, "
 	  s = s + "username: #{@username}, "
 	  s = s + "name: #{@name}, "
 	  s = s + "lastname: #{@lastname}"

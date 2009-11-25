@@ -22,7 +22,7 @@ class Client
   end
   
   def to_string
-    s = "id: #{@client_id}, "
+    s = "ID: #{@client_id}, "
     s = s + "name: #{@name}, "
     s = s + "lastname: #{@lastname}, "
     s = s + "phone_num: #{@phone_num}, "
