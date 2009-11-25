@@ -46,6 +46,8 @@ Klientas:
 	- paskaiciuotas nuomos laikas (dienos, valandos)
 	- nuomos tarifas,
 	- totali suma
+	
+testu sk = 22
 ================================================================
 NEPADARYTA:
 

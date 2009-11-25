@@ -5,6 +5,12 @@ require 'auto'
 require 'auto_types'
 require 'auto_manager'
 
+Spec::Matchers.define :be_array_of_class do |expected|
+  match do |actual|
+    actual.should be_instance_of(expected)
+  end
+end
+
 describe Auto do
 	it "should let create a new Auto object" do
 		Auto.new("034NNAS", "BMW", "335i", "Convertable", "silver").should be_instance_of(Auto)
@@ -32,4 +38,9 @@ describe Auto_manager do
   it "should store all cars in array" do
     am = Auto_manager.new
     am.cars.should be_instance_of(Array)
+  end
+  
+  it "should load cars array of Auto objects" do
+    am = Auto_manager.new
+    am.cars.should be_array_of_class(Auto)
   endend

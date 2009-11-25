@@ -13,8 +13,19 @@ class Rate_bl
   def count_rate(car_type)
     at = Auto_types.new
     case car_type
+    when at.types[0]
+      @rate = 70
     when at.types[1]
-      @rate = 90
+      @rate = 80
+    when at.types[2]
+      @rate = 80
+    when at.types[3]
+      @rate = 120
+    when at.types[4]
+      @rate = 100
+    when at.types[5]
+      @rate = 120   
+          
     else
       @rate = 100
     end
