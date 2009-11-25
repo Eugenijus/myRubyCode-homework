@@ -42,7 +42,20 @@ require "auto_types"
 #uui.get_console_string("asd:")
 #
 
-u = Ui.new
+am = Auto_manager.new
+c = am.find_car("ASD124")
+if c !=nil then
+  puts "found!"
+  puts c.auto_id
+  if am.delete_auto(c.auto_id) then
+    puts "deleted!"
+  end
+  
+end
+if c == nil then
+  puts "didn't find"  
+end
+#u = Ui.new
 
 #TODO: Create Auto_manager, it will show all cars and will save them into file
 #How Orders should be saved?

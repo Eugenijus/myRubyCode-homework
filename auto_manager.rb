@@ -55,6 +55,37 @@ class Auto_manager
     return nil
   end
   
+  def save_cars()
+    y_c = YAML::dump(@cars)
+    @fh.clean
+    @fh.write_obj(y_c)
+  end
+    
+  def delete_at(i)
+    if @cars.length > i then
+      @cars[i] = nil
+      @cars = @cars.compact #removes nils
+      save_cars
+      return true
+    end
+    false
+  end
+  
+  def delete_auto(auto_id)
+    c = find_car_by_id(auto_id)
+    i = what_is_index_of(c.auto_id)
+    delete_at(i)
+  end
+  
+  def what_is_index_of(auto_id)
+    i = 0
+    while (i<@cars.length) do
+      if @cars.at(i).auto_id == auto_id then
+        return i
+      end
+      i=i+1
+    end
+  end  
   #===
   
   def set_cars(values)

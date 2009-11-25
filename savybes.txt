@@ -47,7 +47,14 @@ Klientas:
 	- nuomos tarifas,
 	- totali suma
 	
-testu sk = 22
+testu sk:
+Auto 8
+Bill 6
+Client 3
+Order 4
+bl 2 
+User 8
+= 31
 ================================================================
 NEPADARYTA:
 

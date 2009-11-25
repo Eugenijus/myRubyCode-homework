@@ -5,12 +5,6 @@ require 'auto'
 require 'auto_types'
 require 'auto_manager'
 
-Spec::Matchers.define :be_array_of_class do |expected|
-  match do |actual|
-    actual.should be_instance_of(expected)
-  end
-end
-
 describe Auto do
 	it "should let create a new Auto object" do
 		Auto.new("034NNAS", "BMW", "335i", "Convertable", "silver").should be_instance_of(Auto)
@@ -42,5 +36,23 @@ describe Auto_manager do
   
   it "should load cars array of Auto objects" do
     am = Auto_manager.new
-    am.cars.should be_array_of_class(Auto)
-  endend
+    am.cars[0].should be_instance_of(Auto)
+  end
+  
+  it "should find add and remove car properly" do
+    am = Auto_manager.new
+    #car1 = am.find_car("ASD124")
+    #if car1 !=nil then
+    #  am.delete_at(33)
+    #end
+    #(reg_num, brand, model, type, color)
+    car1 = am.add_car("ASD124", "VW", "Gold", "compact", "red")
+    car1.should_not == nil
+    car1.reg_num.should == "ASD124"
+    am.delete_auto(car1.auto_id)
+    
+    car2 = am.find_car("ASD124")
+    car2.should == nil
+    #am.delete_auto(car2.auto_id)  end
+end
+end
