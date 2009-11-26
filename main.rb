@@ -8,6 +8,7 @@ require "ui"
 require "file_helper"
 require "user_manager"
 require "auto_types"
+require 'date_time_bl'
 
 #o = Order.new("2009-10-12 19:00", "2009-10-13 19:00",1,2)
 #puts o.to_string
@@ -42,19 +43,8 @@ require "auto_types"
 #uui.get_console_string("asd:")
 #
 
-am = Auto_manager.new
-c = am.find_car("ASD124")
-if c !=nil then
-  puts "found!"
-  puts c.auto_id
-  if am.delete_auto(c.auto_id) then
-    puts "deleted!"
-  end
-  
-end
-if c == nil then
-  puts "didn't find"  
-end
+d = Date_time_bl.new
+puts d.check_year(2000)
 #u = Ui.new
 
 #TODO: Create Auto_manager, it will show all cars and will save them into file

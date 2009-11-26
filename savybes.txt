@@ -48,13 +48,13 @@ Klientas:
 	- totali suma
 	
 testu sk:
-Auto 8
+Auto 9
 Bill 6
-Client 3
+Client 5
 Order 4
-bl 2 
+bl 9 
 User 8
-= 31
+= 41
 ================================================================
 NEPADARYTA:
 

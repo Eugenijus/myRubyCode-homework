@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'spec'
 require 'client'
+require 'client_manager'
 
 describe Client do
   it "should let create new client" do
@@ -23,6 +24,18 @@ describe Client do
     cl.address = "123 FunnyRoad, CA 41001, USA"
     
     cl.email.should == "myemail@mail.com"
-    cl.address.should == "123 FunnyRoad, CA 41001, USA"  end
+    cl.address.should == "123 FunnyRoad, CA 41001, USA"
+  end
   
+end
+
+describe Client_manager do
+  it "should let create client_manager" do
+    cm = Client_manager.new
+  end
+  
+  it "should store all clients in array" do
+    cm = Client_manager.new
+    cm.clients.should be_instance_of(Array)
+  end
 end

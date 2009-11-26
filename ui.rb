@@ -142,7 +142,8 @@ class Ui
         else
           n = 0      
         end
-              end
+        
+      end
       
       return 0;
     end
@@ -338,12 +339,15 @@ class Ui
     def get_console_date_and_time(msg)
       puts msg
       y = get_console_int("Year:")
-      if y == nil or y == '\n' then
+      puts y
+      puts y.class
+      puts y.size
+      if @date_time_bl.check_year(y) == false then
         puts "Error: wrong Year parameter"
         return nil
       end
       m = get_console_int("Month:")
-      if m == nil or m == '\n' then
+      if @date_time_bl.check_month(m) then
         puts "Error: wrong Month parameter"
           return nil
       end

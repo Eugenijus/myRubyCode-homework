@@ -17,3 +17,9 @@
   password: pass
   user_id: 183
   username: jonas
+- !ruby/object:User 
+  lastname: Sabas
+  name: Euga
+  password: pass
+  user_id: 252
+  username: adminas
