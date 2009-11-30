@@ -65,7 +65,8 @@ class Date_time_bl
     if day > 31 or month < 1 then
       puts "day should be in range 1..31"
       return false
-    end 
+    end
+    return true
   end
 
   def check_if_num(num)

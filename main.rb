@@ -41,11 +41,8 @@ require 'date_time_bl'
 #puts um.users.to_s
 #uui = Ui.new
 #uui.get_console_string("asd:")
-#
 
-d = Date_time_bl.new
-puts d.check_year(2000)
-#u = Ui.new
+u = Ui.new
 
 #TODO: Create Auto_manager, it will show all cars and will save them into file
 #How Orders should be saved?

@@ -25,3 +25,71 @@
   rate: 100
   rent_time: 30.0
   total: 3000.0
+- !ruby/object:Bill 
+  bill_id: 321
+  order_id: 136
+  order_obj: !ruby/object:Order 
+    auto_id: 5
+    client_id: 19
+    garage_id: 1
+    order_id: 136
+    pickup_time: 2009-11-20 12:00:00 +02:00
+    return_time: 2009-11-21 12:00:00 +02:00
+  rate: 120
+  rent_time: 24.0
+  total: 2592.0
+- !ruby/object:Bill 
+  bill_id: 322
+  order_id: 387
+  order_obj: !ruby/object:Order 
+    auto_id: 6
+    client_id: 19
+    garage_id: 1
+    order_id: 387
+    pickup_time: 2009-12-24 10:00:00 +02:00
+    return_time: 2009-12-24 13:00:00 +02:00
+  rate: 120
+  rent_time: 3.0
+  total: 324.0
+- !ruby/object:Bill 
+  bill_id: 345
+  discount: 1
+  order_id: 139
+  order_obj: !ruby/object:Order 
+    auto_id: 4
+    client_id: 19
+    garage_id: 1
+    order_id: 139
+    pickup_time: 2009-11-23 11:11:00 +02:00
+    return_time: 2009-11-24 11:11:00 +02:00
+  rate: 80
+  rent_time: 24.0
+  total: 1728.0
+- !ruby/object:Bill 
+  bill_id: 346
+  discount: 1
+  order_id: 138
+  order_obj: !ruby/object:Order 
+    auto_id: 6
+    client_id: 12
+    garage_id: 1
+    order_id: 138
+    pickup_time: 2009-11-20 12:00:00 +02:00
+    return_time: 2009-11-12 10:00:00 +02:00
+  rate: 120
+  rent_time: -194.0
+  total: -23280.0
+- !ruby/object:Bill 
+  bill_id: 347
+  discount: 1
+  order_id: 410
+  order_obj: !ruby/object:Order 
+    auto_id: 5
+    client_id: 12
+    garage_id: 1
+    order_id: 410
+    pickup_time: 2009-12-24 11:00:00 +02:00
+    return_time: 2009-12-24 12:00:00 +02:00
+  rate: 120
+  rent_time: 1.0
+  total: 108.0

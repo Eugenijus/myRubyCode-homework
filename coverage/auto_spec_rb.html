@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Wed Nov 11 19:00:51 +0200 2009 with 
+      Generated on Mon Nov 30 19:31:02 +0200 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -174,43 +174,109 @@
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='auto_spec_rb.html'> auto_spec.rb </a> </td> <td class='lines_total'>
-    <tt> 21 </tt> </td> <td class='lines_code'> <tt> 17 </tt> </td> <td> <table
+    <tt> 76 </tt> </td> <td class='lines_code'> <tt> 64 </tt> </td> <td> <table
     cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
-    class='coverage_total'> 57.1% </tt> &nbsp; </td> <td> <table
+    class='coverage_total'> 100.0% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
-    class='covered' width='57' /> <td class='uncovered' width='43' /> </tr>
+    class='covered' width='100' /> <td class='uncovered' width='0' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 52.9%
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 100.0%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    width='100' cellpadding='0'> <tr> <td class='covered' width='53' /> <td
-    class='uncovered' width='47' /> </tr> </table> </td> </tr> </table> </td>
+    width='100' cellpadding='0'> <tr> <td class='covered' width='100' /> <td
+    class='uncovered' width='0' /> </tr> </table> </td> </tr> </table> </td>
     </tr> </tbody> </table><pre><span class="inferred1"><a name="line1"></a> 1 #
     auto_spec.rb </span><span class="marked0"><a name="line2"></a> 2 require
-    &quot;rubygems&quot; </span><span class="marked1"><a name="line3"></a> 3
-    require &quot;spec&quot; </span><span class="marked0"><a name="line4"></a> 4
-    require &quot;auto&quot; </span><span class="inferred1"><a name="line5"></a>
-    5 </span><span class="marked0"><a name="line6"></a> 6 describe Auto do
-    </span><span class="marked1"><a name="line7"></a> 7 it &quot;should let
-    create a new Auto object&quot; do </span><span class="marked0"><a
-    name="line8"></a> 8 Auto.new(&quot;034NNAS&quot;, &quot;BMW&quot;,
-    &quot;335i&quot;, &quot;Convertable&quot;, &quot;silver&quot;).should
-    be_instance_of(Auto) </span><span class="inferred1"><a name="line9"></a> 9
-    end </span><span class="inferred0"><a name="line10"></a>10 </span><span
-    class="marked1"><a name="line11"></a>11 it &quot;should have auto_id, reg.
-    number, brand, name, type, color&quot; do </span><span class="marked0"><a
-    name="line12"></a>12 mycar = Auto.new(&quot;035NNAS&quot;, &quot;BMW&quot;,
-    &quot;335i&quot;, &quot;Convertable&quot;, &quot;silver&quot;) </span><span
-    class="uncovered1"><a name="line13"></a>13 mycar.auto_id.should_not == nil
-    </span><span class="uncovered0"><a name="line14"></a>14 mycar.reg_num.should
-    == &quot;035NNAS&quot; </span><span class="uncovered1"><a
-    name="line15"></a>15 mycar.brand.should == &quot;BMW&quot; </span><span
-    class="uncovered0"><a name="line16"></a>16 mycar.name.should ==
-    &quot;335i&quot; </span><span class="uncovered1"><a name="line17"></a>17
-    mycar.type.should == &quot;Convertable&quot; </span><span
-    class="uncovered0"><a name="line18"></a>18 mycar.color.should ==
-    &quot;silver&quot; </span><span class="uncovered1"><a name="line19"></a>19
-    end </span><span class="uncovered0"><a name="line20"></a>20 </span><span
-    class="uncovered1"><a name="line21"></a>21 end </span></pre>
+    'rubygems' </span><span class="marked1"><a name="line3"></a> 3 require
+    'spec' </span><span class="marked0"><a name="line4"></a> 4 require 'auto'
+    </span><span class="marked1"><a name="line5"></a> 5 require 'auto_types'
+    </span><span class="marked0"><a name="line6"></a> 6 require 'auto_manager'
+    </span><span class="inferred1"><a name="line7"></a> 7 </span><span
+    class="marked0"><a name="line8"></a> 8 describe Auto do </span><span
+    class="marked1"><a name="line9"></a> 9 it &quot;should let create a new Auto
+    object&quot; do </span><span class="marked0"><a name="line10"></a>10
+    Auto.new(&quot;034NNAS&quot;, &quot;BMW&quot;, &quot;335i&quot;,
+    &quot;Convertable&quot;, &quot;silver&quot;).should be_instance_of(Auto)
+    </span><span class="inferred1"><a name="line11"></a>11 end </span><span
+    class="inferred0"><a name="line12"></a>12 </span><span class="marked1"><a
+    name="line13"></a>13 it &quot;should have auto_id, reg. number, brand, name,
+    type, color&quot; do </span><span class="marked0"><a name="line14"></a>14 at
+    = Auto_types.new.types </span><span class="marked1"><a name="line15"></a>15
+    mycar = Auto.new(&quot;035NNAS&quot;, &quot;BMW&quot;, &quot;335i&quot;,
+    at[4], &quot;silver&quot;) </span><span class="marked0"><a
+    name="line16"></a>16 mycar.auto_id.should_not == nil </span><span
+    class="inferred1"><a name="line17"></a>17 </span><span class="marked0"><a
+    name="line18"></a>18 mycar.reg_num.should == &quot;035NNAS&quot;
+    </span><span class="marked1"><a name="line19"></a>19 mycar.brand.should ==
+    &quot;BMW&quot; </span><span class="marked0"><a name="line20"></a>20
+    mycar.model.should == &quot;335i&quot; </span><span class="marked1"><a
+    name="line21"></a>21 mycar.type.should == at[4] </span><span
+    class="marked0"><a name="line22"></a>22 mycar.color.should ==
+    &quot;silver&quot; </span><span class="inferred1"><a name="line23"></a>23
+    end </span><span class="inferred0"><a name="line24"></a>24 end </span><span
+    class="inferred1"><a name="line25"></a>25 </span><span class="marked0"><a
+    name="line26"></a>26 describe Auto_manager do </span><span
+    class="marked1"><a name="line27"></a>27 it &quot;should let create
+    auto_manager&quot; do </span><span class="marked0"><a name="line28"></a>28
+    am = Auto_manager.new </span><span class="inferred1"><a name="line29"></a>29
+    end </span><span class="inferred0"><a name="line30"></a>30 </span><span
+    class="marked1"><a name="line31"></a>31 it &quot;should store all cars in
+    array&quot; do </span><span class="marked0"><a name="line32"></a>32 am =
+    Auto_manager.new </span><span class="marked1"><a name="line33"></a>33
+    am.cars.should be_instance_of(Array) </span><span class="inferred0"><a
+    name="line34"></a>34 end </span><span class="inferred1"><a
+    name="line35"></a>35 </span><span class="marked0"><a name="line36"></a>36 it
+    &quot;should load cars array of Auto objects&quot; do </span><span
+    class="marked1"><a name="line37"></a>37 am = Auto_manager.new </span><span
+    class="marked0"><a name="line38"></a>38 am.cars[0].should
+    be_instance_of(Auto) </span><span class="inferred1"><a name="line39"></a>39
+    end </span><span class="inferred0"><a name="line40"></a>40 </span><span
+    class="marked1"><a name="line41"></a>41 it &quot;should add and remove car
+    properly&quot; do </span><span class="marked0"><a name="line42"></a>42 am =
+    Auto_manager.new </span><span class="marked1"><a name="line43"></a>43 car1 =
+    am.add_car(&quot;ASD124&quot;, &quot;VW&quot;, &quot;Gold&quot;,
+    &quot;compact&quot;, &quot;red&quot;) </span><span class="marked0"><a
+    name="line44"></a>44 car1.should_not == nil </span><span class="marked1"><a
+    name="line45"></a>45 car1.reg_num.should == &quot;ASD124&quot; </span><span
+    class="marked0"><a name="line46"></a>46 am.delete_auto(car1.auto_id)
+    </span><span class="inferred1"><a name="line47"></a>47 </span><span
+    class="marked0"><a name="line48"></a>48 car2 =
+    am.find_car(&quot;ASD124&quot;) </span><span class="marked1"><a
+    name="line49"></a>49 car2.should == nil </span><span class="inferred0"><a
+    name="line50"></a>50 end </span><span class="inferred1"><a
+    name="line51"></a>51 </span><span class="marked0"><a name="line52"></a>52 it
+    &quot;should find car by reg_num&quot; do </span><span class="marked1"><a
+    name="line53"></a>53 am = Auto_manager.new </span><span class="marked0"><a
+    name="line54"></a>54 car1 = am.add_car(&quot;ASD124&quot;, &quot;VW&quot;,
+    &quot;Gold&quot;, &quot;compact&quot;, &quot;red&quot;) </span><span
+    class="marked1"><a name="line55"></a>55 car2 =
+    am.find_car(&quot;ASD124&quot;) </span><span class="marked0"><a
+    name="line56"></a>56 am.delete_auto(car1.auto_id) </span><span
+    class="marked1"><a name="line57"></a>57 car1.auto_id.should == car2.auto_id
+    end </span><span class="inferred0"><a name="line58"></a>58 </span><span
+    class="marked1"><a name="line59"></a>59 it &quot;should find car by
+    auto_id&quot; do </span><span class="marked0"><a name="line60"></a>60 am =
+    Auto_manager.new </span><span class="marked1"><a name="line61"></a>61 car1 =
+    am.add_car(&quot;ASD124&quot;, &quot;VW&quot;, &quot;Gold&quot;,
+    &quot;compact&quot;, &quot;red&quot;) </span><span class="marked0"><a
+    name="line62"></a>62 car2 = am.find_car_by_id(car1.auto_id) </span><span
+    class="marked1"><a name="line63"></a>63 am.delete_auto(car1.auto_id)
+    </span><span class="marked0"><a name="line64"></a>64 car1.reg_num.should ==
+    car2.reg_num </span><span class="marked1"><a name="line65"></a>65
+    car1.model.should == car2.model </span><span class="marked0"><a
+    name="line66"></a>66 car1.color.should == car2.color </span><span
+    class="inferred1"><a name="line67"></a>67 end </span><span
+    class="inferred0"><a name="line68"></a>68 end </span><span
+    class="inferred1"><a name="line69"></a>69 </span><span class="marked0"><a
+    name="line70"></a>70 describe Auto_types do </span><span class="marked1"><a
+    name="line71"></a>71 it &quot;should contain exact auto types&quot; do
+    </span><span class="marked0"><a name="line72"></a>72 at = Auto_types.new
+    </span><span class="marked1"><a name="line73"></a>73 my_types =
+    [&quot;economy&quot;, &quot;compact&quot;, &quot;full-size&quot;,
+    &quot;luxury&quot;, &quot;convertable&quot;, &quot;sports-car&quot;,
+    &quot;minivan&quot;, &quot;pick-up-truck&quot;, &quot;van&quot;]
+    </span><span class="marked0"><a name="line74"></a>74 at.types.should ==
+    my_types </span><span class="inferred1"><a name="line75"></a>75 end
+    </span><span class="inferred0"><a name="line76"></a>76 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

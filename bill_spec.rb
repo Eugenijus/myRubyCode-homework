@@ -3,6 +3,19 @@ require 'rubygems'
 require 'spec'
 require 'order'
 require 'bill'
+require 'bill_manager'
+
+Spec::Matchers.define :be_a_multiple_of do |expected|
+  match do |actual|
+    actual % expected == 0
+  end
+end
+
+Spec::Matchers.define :be_more_than do |expected|
+  match do |actual|
+    actual > expected
+  end
+end
 
 describe Bill do
   before(:each) do
@@ -12,10 +25,12 @@ describe Bill do
     @garage_id = 1
     @client_id = 1
     @rate = 100 #litais
-    @order = Order.new(@t1, @t2, @auto_id, @garage_id, @client_id)      end
+    @order = Order.new(@t1, @t2, @auto_id, @garage_id, @client_id)    
+  end
   
   it "should let create bill" do
-    b = Bill.new(@order, @rate).should be_instance_of(Bill)  end
+    b = Bill.new(@order, @rate).should be_instance_of(Bill)
+  end
   
   it "should have order_id" do
     b1 = Bill.new(@order, @rate)
@@ -30,7 +45,8 @@ describe Bill do
   it "should find rent time" do
     b2 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
     r = b2.rent_time
-    r.should be_instance_of(Float)  end
+    r.should be_instance_of(Float)
+  end
   
   it "should find rent time equal to difference of two dates" do
     b3 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
@@ -40,7 +56,62 @@ describe Bill do
   
   it "should find total how much client should pay" do
     b4 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
-    total = b4.find_total.should == 2400
+    total = b4.find_total
+    total.should == (2400 * 0.9)
   end
+  
+  it "should give a 10% discount for rent time >= 24 hours" do
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      b5.find_discount.should == (0.9)
+  end
+
+  it "should give a 5% discount for rent time >= 6 hours" do
+      @order.pickup_time=Time.mktime(2009,11,20,10,00)
+      @order.return_time=Time.mktime(2009,11,20,16.00)
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      b5.find_discount.should == (0.95)
+  end
+
+  it "should give a 10% discount for any rent time during Cristmas holiday" do
+      @order.pickup_time=Time.mktime(2009,12,24,10,00)
+      @order.return_time=Time.mktime(2009,12,24,11.00)
+      #@order.pickup_time.day.should == 24
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      b5.find_discount.should == (0.90)
+  end
+
+  it "should give no discount for regular days" do
+      @order.pickup_time=Time.mktime(2009,11,24,10,00)
+      @order.return_time=Time.mktime(2009,11,24,11.00)
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      b5.find_discount.should == (1)
+  end
+
+  it "should print correctly" do
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      str = b5.to_string
+      b5.to_string.should eql(b5.to_string)
+  end
+
+
+
+  it "should not have negative total" do
+    b5 = Bill.new(@order, @rate)
+    total = b5.find_total
+    total.should be_more_than(0)
+  end
+
+   
+end
+
+describe Bill_manager do
+  before(:each) do
+    @bm = Bill_manager.new
+  end
+  
+  it "should create bill manager" do
+    @bm.should be_instance_of(Bill_manager)
+  end
+
 
 end

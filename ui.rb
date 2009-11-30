@@ -258,6 +258,9 @@ class Ui
         o = @om.add_order(pickup_time, return_time, auto_id, garage_id, client_id)
         if o != nil then
           puts "Successfuly added order!"
+          if @cm.add_order(o.order_id, client_id) == -1 then
+            puts "Couldn't write order_id to client obj."
+          end
         end
         return 1      
       when 2:
@@ -339,18 +342,16 @@ class Ui
     def get_console_date_and_time(msg)
       puts msg
       y = get_console_int("Year:")
-      puts y
-      puts y.class
-      puts y.size
       if @date_time_bl.check_year(y) == false then
         puts "Error: wrong Year parameter"
         return nil
       end
       m = get_console_int("Month:")
-      if @date_time_bl.check_month(m) then
+      if @date_time_bl.check_month(m) == false then
         puts "Error: wrong Month parameter"
           return nil
       end
+
       d = get_console_int("Day:")
       if d == nil or d == '\n' then
         puts "Error: wrong Day parameter"

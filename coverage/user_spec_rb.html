@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Wed Nov 11 19:00:51 +0200 2009 with 
+      Generated on Mon Nov 30 19:31:03 +0200 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -174,7 +174,7 @@
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='user_spec_rb.html'> user_spec.rb </a> </td> <td class='lines_total'>
-    <tt> 50 </tt> </td> <td class='lines_code'> <tt> 41 </tt> </td> <td> <table
+    <tt> 68 </tt> </td> <td class='lines_code'> <tt> 56 </tt> </td> <td> <table
     cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
     class='coverage_total'> 100.0% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
@@ -188,65 +188,93 @@
     user_spec.rb </span><span class="marked0"><a name="line2"></a> 2 require
     'rubygems' </span><span class="marked1"><a name="line3"></a> 3 require
     'spec' </span><span class="marked0"><a name="line4"></a> 4 require 'user'
-    </span><span class="inferred1"><a name="line5"></a> 5 </span><span
-    class="marked0"><a name="line6"></a> 6 describe User do </span><span
-    class="marked1"><a name="line7"></a> 7 it &quot;should let create new
-    user&quot; do </span><span class="marked0"><a name="line8"></a> 8
-    User.new(&quot;admin&quot;, &quot;pass&quot;).should be_instance_of(User)
-    </span><span class="inferred1"><a name="line9"></a> 9 end </span><span
-    class="inferred0"><a name="line10"></a>10 </span><span class="marked1"><a
-    name="line11"></a>11 it &quot;shoould have username and password&quot; do
-    </span><span class="marked0"><a name="line12"></a>12 admin_account =
-    User.new(&quot;admin&quot;, &quot;pass&quot;) </span><span
-    class="marked1"><a name="line13"></a>13 admin_account.username.should ==
-    &quot;admin&quot; </span><span class="marked0"><a name="line14"></a>14
-    admin_account.password.should == &quot;pass&quot; </span><span
-    class="inferred1"><a name="line15"></a>15 </span><span class="marked0"><a
-    name="line16"></a>16 user_account = User.new(&quot;username1&quot;,
-    &quot;pass1&quot;) </span><span class="marked1"><a name="line17"></a>17
+    </span><span class="marked1"><a name="line5"></a> 5 require 'user_manager'
+    </span><span class="inferred0"><a name="line6"></a> 6 </span><span
+    class="marked1"><a name="line7"></a> 7 describe User do </span><span
+    class="marked0"><a name="line8"></a> 8 it &quot;should let create new
+    user&quot; do </span><span class="marked1"><a name="line9"></a> 9
+    User.new(&quot;admin&quot;, &quot;pass&quot;, &quot;name&quot;,
+    &quot;lastname&quot;).should be_instance_of(User) </span><span
+    class="inferred0"><a name="line10"></a>10 end </span><span
+    class="inferred1"><a name="line11"></a>11 </span><span class="marked0"><a
+    name="line12"></a>12 it &quot;shoould have username and password&quot; do
+    </span><span class="marked1"><a name="line13"></a>13 admin_account =
+    User.new(&quot;admin&quot;, &quot;pass&quot;,&quot;name&quot;,
+    &quot;lastname&quot;) </span><span class="marked0"><a name="line14"></a>14
+    admin_account.username.should == &quot;admin&quot; </span><span
+    class="marked1"><a name="line15"></a>15 admin_account.password.should ==
+    &quot;pass&quot; </span><span class="inferred0"><a name="line16"></a>16
+    </span><span class="marked1"><a name="line17"></a>17 user_account =
+    User.new(&quot;username1&quot;, &quot;pass1&quot;, &quot;name2&quot;,
+    &quot;lastname2&quot;) </span><span class="marked0"><a name="line18"></a>18
     user_account.username.should == &quot;username1&quot; </span><span
-    class="marked0"><a name="line18"></a>18 user_account.password.should ==
-    &quot;pass1&quot; </span><span class="inferred1"><a name="line19"></a>19 end
-    </span><span class="inferred0"><a name="line20"></a>20 </span><span
-    class="marked1"><a name="line21"></a>21 it &quot;should let change username
-    and password&quot; do </span><span class="marked0"><a name="line22"></a>22
-    admin_account2 = User.new(&quot;admin&quot;,&quot;pass&quot;) </span><span
-    class="marked1"><a name="line23"></a>23 admin_account2.username =
-    &quot;admin2&quot; </span><span class="marked0"><a name="line24"></a>24
-    admin_account2.username.should == &quot;admin2&quot; </span><span
-    class="marked1"><a name="line25"></a>25 admin_account2.password =
-    &quot;newpass&quot; </span><span class="marked0"><a name="line26"></a>26
+    class="marked1"><a name="line19"></a>19 user_account.password.should ==
+    &quot;pass1&quot; </span><span class="inferred0"><a name="line20"></a>20 end
+    </span><span class="inferred1"><a name="line21"></a>21 </span><span
+    class="marked0"><a name="line22"></a>22 it &quot;should let change username
+    and password&quot; do </span><span class="marked1"><a name="line23"></a>23
+    admin_account2 =
+    User.new(&quot;admin&quot;,&quot;pass&quot;,&quot;name&quot;,
+    &quot;lastname&quot;) </span><span class="marked0"><a name="line24"></a>24
+    admin_account2.username = &quot;admin2&quot; </span><span class="marked1"><a
+    name="line25"></a>25 admin_account2.username.should == &quot;admin2&quot;
+    </span><span class="marked0"><a name="line26"></a>26 admin_account2.password
+    = &quot;newpass&quot; </span><span class="marked1"><a name="line27"></a>27
     admin_account2.password.should == &quot;newpass&quot; </span><span
-    class="inferred1"><a name="line27"></a>27 end </span><span
-    class="inferred0"><a name="line28"></a>28 </span><span class="marked1"><a
-    name="line29"></a>29 it &quot;can have name and lastname&quot; do
-    </span><span class="marked0"><a name="line30"></a>30 account =
-    User.new(&quot;account1&quot;,&quot;randompass&quot;) </span><span
-    class="marked1"><a name="line31"></a>31 account.name = &quot;John&quot;
-    </span><span class="marked0"><a name="line32"></a>32 account.name.should ==
-    &quot;John&quot; </span><span class="marked1"><a name="line33"></a>33
-    account.lastname = &quot;Steward&quot; </span><span class="marked0"><a
-    name="line34"></a>34 account.lastname.should == &quot;Steward&quot;
-    </span><span class="inferred1"><a name="line35"></a>35 end </span><span
+    class="inferred0"><a name="line28"></a>28 end </span><span
+    class="inferred1"><a name="line29"></a>29 </span><span class="marked0"><a
+    name="line30"></a>30 it &quot;can have name and lastname&quot; do
+    </span><span class="marked1"><a name="line31"></a>31 account =
+    User.new(&quot;account1&quot;,&quot;randompass&quot;, &quot;name&quot;,
+    &quot;lastname&quot;) </span><span class="marked0"><a name="line32"></a>32
+    account.name = &quot;John&quot; </span><span class="marked1"><a
+    name="line33"></a>33 account.name.should == &quot;John&quot; </span><span
+    class="marked0"><a name="line34"></a>34 account.lastname =
+    &quot;Steward&quot; </span><span class="marked1"><a name="line35"></a>35
+    account.lastname.should == &quot;Steward&quot; </span><span
     class="inferred0"><a name="line36"></a>36 end </span><span
-    class="inferred1"><a name="line37"></a>37 </span><span class="marked0"><a
-    name="line38"></a>38 describe User, &quot;user_id&quot; do </span><span
-    class="marked1"><a name="line39"></a>39 it &quot;should be automaticly
-    generated&quot; do </span><span class="marked0"><a name="line40"></a>40
-    account1 = User.new(&quot;account2&quot;,&quot;randompass2&quot;)
-    </span><span class="marked1"><a name="line41"></a>41 account1.user_id.should
-    be_instance_of(Fixnum) </span><span class="inferred0"><a
-    name="line42"></a>42 end </span><span class="inferred1"><a
-    name="line43"></a>43 </span><span class="marked0"><a name="line44"></a>44 it
-    &quot;should be unique&quot; do </span><span class="marked1"><a
-    name="line45"></a>45 account3 =
-    User.new(&quot;account3&quot;,&quot;randompass3&quot;) </span><span
-    class="marked0"><a name="line46"></a>46 account4 =
-    User.new(&quot;account4&quot;,&quot;randompass4&quot;) </span><span
-    class="marked1"><a name="line47"></a>47 account3.user_id.should_not ==
-    account4.user_id </span><span class="inferred0"><a name="line48"></a>48 end
-    </span><span class="inferred1"><a name="line49"></a>49 </span><span
-    class="inferred0"><a name="line50"></a>50 end </span></pre>
+    class="inferred1"><a name="line37"></a>37 end </span><span
+    class="inferred0"><a name="line38"></a>38 </span><span class="marked1"><a
+    name="line39"></a>39 describe User, &quot;user_id&quot; do </span><span
+    class="marked0"><a name="line40"></a>40 it &quot;should be automaticly
+    generated&quot; do </span><span class="marked1"><a name="line41"></a>41
+    account1 = User.new(&quot;account2&quot;,&quot;randompass2&quot;,
+    &quot;randomname&quot;, &quot;randomlastname&quot;) </span><span
+    class="marked0"><a name="line42"></a>42 account1.user_id.should
+    be_instance_of(Fixnum) </span><span class="inferred1"><a
+    name="line43"></a>43 end </span><span class="inferred0"><a
+    name="line44"></a>44 </span><span class="marked1"><a name="line45"></a>45 it
+    &quot;should be unique&quot; do </span><span class="marked0"><a
+    name="line46"></a>46 account3 =
+    User.new(&quot;account3&quot;,&quot;randompass3&quot;, &quot;rname3&quot;,
+    &quot;rlastname3&quot;) </span><span class="marked1"><a name="line47"></a>47
+    account4 = User.new(&quot;account4&quot;,&quot;randompass4&quot;,
+    &quot;rname4&quot;, &quot;rlastname4&quot;) </span><span class="marked0"><a
+    name="line48"></a>48 account3.user_id.should_not == account4.user_id
+    </span><span class="inferred1"><a name="line49"></a>49 end </span><span
+    class="inferred0"><a name="line50"></a>50 </span><span class="inferred1"><a
+    name="line51"></a>51 end </span><span class="inferred0"><a
+    name="line52"></a>52 </span><span class="marked1"><a name="line53"></a>53
+    describe User_manager do </span><span class="marked0"><a
+    name="line54"></a>54 it &quot;should let create user_manager&quot; do
+    </span><span class="marked1"><a name="line55"></a>55 um = User_manager.new
+    </span><span class="inferred0"><a name="line56"></a>56 end </span><span
+    class="inferred1"><a name="line57"></a>57 </span><span class="marked0"><a
+    name="line58"></a>58 it &quot;should store all users in file and should
+    always load all users&quot; do </span><span class="marked1"><a
+    name="line59"></a>59 um = User_manager.new </span><span class="marked0"><a
+    name="line60"></a>60 um.users.should be_instance_of(Array) </span><span
+    class="marked1"><a name="line61"></a>61
+    um.add_user(&quot;username&quot;,&quot;password&quot;, &quot;name&quot;,
+    &quot;lastname&quot;) </span><span class="marked0"><a name="line62"></a>62
+    um = nil </span><span class="inferred1"><a name="line63"></a>63 </span><span
+    class="marked0"><a name="line64"></a>64 um2 = User_manager.new </span><span
+    class="marked1"><a name="line65"></a>65
+    um2.find_user(&quot;username&quot;).should be_instance_of(User) </span><span
+    class="marked0"><a name="line66"></a>66
+    um2.delete_user(&quot;username&quot;) </span><span class="inferred1"><a
+    name="line67"></a>67 end </span><span class="inferred0"><a
+    name="line68"></a>68 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

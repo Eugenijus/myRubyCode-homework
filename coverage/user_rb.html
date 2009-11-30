@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Wed Nov 11 19:00:51 +0200 2009 with 
+      Generated on Mon Nov 30 19:31:03 +0200 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -173,16 +173,16 @@
     class='heading'> Total lines </td> <td class='heading'> Lines of code </td>
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a href='user_rb.html'>
-    user.rb </a> </td> <td class='lines_total'> <tt> 55 </tt> </td> <td
-    class='lines_code'> <tt> 42 </tt> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_total'> 100.0%
+    user.rb </a> </td> <td class='lines_total'> <tt> 63 </tt> </td> <td
+    class='lines_code'> <tt> 33 </tt> </td> <td> <table cellspacing='0'
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_total'> 76.2%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    width='100' cellpadding='0'> <tr> <td class='covered' width='100' /> <td
-    class='uncovered' width='0' /> </tr> </table> </td> </tr> </table> </td>
+    width='100' cellpadding='0'> <tr> <td class='covered' width='76' /> <td
+    class='uncovered' width='24' /> </tr> </table> </td> </tr> </table> </td>
     <td> <table cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
-    class='coverage_code'> 100.0% </tt> &nbsp; </td> <td> <table
+    class='coverage_code'> 78.8% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
-    class='covered' width='100' /> <td class='uncovered' width='0' /> </tr>
+    class='covered' width='79' /> <td class='uncovered' width='21' /> </tr>
     </table> </td> </tr> </table> </td> </tr> </tbody> </table><pre><span
     class="inferred0"><a name="line1"></a> 1 #!/usr/bin/ruby -w </span><span
     class="inferred1"><a name="line2"></a> 2 # user.rb </span><span
@@ -194,55 +194,64 @@
     class="marked1"><a name="line8"></a> 8 attr_reader :username, :password,
     :name, :lastname, :user_id, :file_name </span><span class="inferred0"><a
     name="line9"></a> 9 </span><span class="marked1"><a name="line10"></a>10 def
-    initialize(username, password) </span><span class="marked0"><a
-    name="line11"></a>11 @username = username </span><span class="marked1"><a
-    name="line12"></a>12 @password = password </span><span class="marked0"><a
-    name="line13"></a>13 @name = &quot;name&quot; </span><span
-    class="marked1"><a name="line14"></a>14 @lastname = &quot;lastname&quot;
-    </span><span class="marked0"><a name="line15"></a>15 fh = File_helper.new
-    </span><span class="marked1"><a name="line16"></a>16
-    fh.file_name=&quot;user_id.txt&quot; </span><span class="marked0"><a
+    initialize(username, password, name, lastname) </span><span
+    class="marked0"><a name="line11"></a>11 @username = username </span><span
+    class="marked1"><a name="line12"></a>12 @password = password </span><span
+    class="marked0"><a name="line13"></a>13 @name = name </span><span
+    class="marked1"><a name="line14"></a>14 @lastname = lastname </span><span
+    class="marked0"><a name="line15"></a>15 fh = File_helper.new </span><span
+    class="marked1"><a name="line16"></a>16
+    fh.file_name=&quot;data/user_id.txt&quot; </span><span class="marked0"><a
     name="line17"></a>17 @user_id = fh.get_last_id </span><span
-    class="inferred1"><a name="line18"></a>18 </span><span class="marked0"><a
-    name="line19"></a>19 serialize = self.to_yaml </span><span
-    class="marked1"><a name="line20"></a>20 @file_name = &quot;users/&quot; +
+    class="inferred1"><a name="line18"></a>18 </span><span class="inferred0"><a
+    name="line19"></a>19 #serialize = self.to_yaml </span><span
+    class="inferred1"><a name="line20"></a>20 #@file_name = &quot;users/&quot; +
     &quot;u_&quot; + @username.to_s + @user_id.to_s + &quot;.txt&quot;
-    </span><span class="marked0"><a name="line21"></a>21 filehelper =
-    File_helper.new() </span><span class="marked1"><a name="line22"></a>22
-    filehelper.file_name=@file_name </span><span class="marked0"><a
-    name="line23"></a>23 filehelper.write_obj(serialize) </span><span
+    </span><span class="inferred0"><a name="line21"></a>21 #filehelper =
+    File_helper.new() </span><span class="inferred1"><a name="line22"></a>22
+    #filehelper.file_name=@file_name </span><span class="inferred0"><a
+    name="line23"></a>23 #filehelper.write_obj(serialize) </span><span
     class="inferred1"><a name="line24"></a>24 end </span><span
     class="inferred0"><a name="line25"></a>25 </span><span class="inferred1"><a
     name="line26"></a>26 #setters </span><span class="marked0"><a
     name="line27"></a>27 def username=(value) </span><span class="marked1"><a
-    name="line28"></a>28 @username = value </span><span class="marked0"><a
-    name="line29"></a>29 serialize_all </span><span class="inferred1"><a
+    name="line28"></a>28 @username = value </span><span class="inferred0"><a
+    name="line29"></a>29 #serialize_all </span><span class="inferred1"><a
     name="line30"></a>30 end </span><span class="inferred0"><a
     name="line31"></a>31 </span><span class="marked1"><a name="line32"></a>32
     def lastname=(value) </span><span class="marked0"><a name="line33"></a>33
-    @lastname = value </span><span class="marked1"><a name="line34"></a>34
-    serialize_all </span><span class="inferred0"><a name="line35"></a>35 end
+    @lastname = value </span><span class="inferred1"><a name="line34"></a>34
+    #serialize_all </span><span class="inferred0"><a name="line35"></a>35 end
     </span><span class="inferred1"><a name="line36"></a>36 </span><span
     class="marked0"><a name="line37"></a>37 def name=(value) </span><span
     class="marked1"><a name="line38"></a>38 @name = value </span><span
-    class="marked0"><a name="line39"></a>39 serialize_all </span><span
+    class="inferred0"><a name="line39"></a>39 #serialize_all </span><span
     class="inferred1"><a name="line40"></a>40 end </span><span
     class="inferred0"><a name="line41"></a>41 </span><span class="marked1"><a
     name="line42"></a>42 def password=(value) </span><span class="marked0"><a
-    name="line43"></a>43 @password = value </span><span class="marked1"><a
-    name="line44"></a>44 serialize_all </span><span class="inferred0"><a
+    name="line43"></a>43 @password = value </span><span class="inferred1"><a
+    name="line44"></a>44 #serialize_all </span><span class="inferred0"><a
     name="line45"></a>45 end </span><span class="inferred1"><a
     name="line46"></a>46 #end setters </span><span class="inferred0"><a
     name="line47"></a>47 </span><span class="marked1"><a name="line48"></a>48
-    def serialize_all </span><span class="marked0"><a name="line49"></a>49
-    serialize = self.to_yaml </span><span class="marked1"><a
-    name="line50"></a>50 filehelper = File_helper.new </span><span
-    class="marked0"><a name="line51"></a>51 filehelper.file_name=@file_name
-    </span><span class="marked1"><a name="line52"></a>52 filehelper.clean
-    </span><span class="marked0"><a name="line53"></a>53
-    filehelper.write_obj(serialize) </span><span class="inferred1"><a
-    name="line54"></a>54 end </span><span class="inferred0"><a
-    name="line55"></a>55 end </span></pre>
+    def to_string </span><span class="uncovered0"><a name="line49"></a>49 s =
+    &quot;ID: #{@user_id}, &quot; </span><span class="uncovered1"><a
+    name="line50"></a>50 s = s + &quot;username: #{@username}, &quot;
+    </span><span class="uncovered0"><a name="line51"></a>51 s = s + &quot;name:
+    #{@name}, &quot; </span><span class="uncovered1"><a name="line52"></a>52 s =
+    s + &quot;lastname: #{@lastname}&quot; </span><span class="uncovered0"><a
+    name="line53"></a>53 return s </span><span class="uncovered1"><a
+    name="line54"></a>54 end </span><span class="uncovered0"><a
+    name="line55"></a>55 </span><span class="uncovered1"><a name="line56"></a>56
+    #def serialize_all </span><span class="uncovered0"><a name="line57"></a>57
+    #serialize = self.to_yaml </span><span class="uncovered1"><a
+    name="line58"></a>58 #filehelper = File_helper.new </span><span
+    class="uncovered0"><a name="line59"></a>59 #filehelper.file_name=@file_name
+    </span><span class="uncovered1"><a name="line60"></a>60 #filehelper.clean
+    </span><span class="uncovered0"><a name="line61"></a>61
+    #filehelper.write_obj(serialize) </span><span class="uncovered1"><a
+    name="line62"></a>62 #end </span><span class="uncovered0"><a
+    name="line63"></a>63 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

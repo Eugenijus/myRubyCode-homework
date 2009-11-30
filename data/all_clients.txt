@@ -6,5 +6,19 @@
   email: "-"
   lastname: ClientLastName
   name: Client1
+  order_ids: 
+  - 410
   phone_num: "86545678"
   soc_id: "13543234543"
+- !ruby/object:Client 
+  address: "-"
+  client_id: 19
+  driving_license_id: "123456763"
+  email: "-"
+  lastname: Jonaitis
+  name: Jonas
+  order_ids: 
+  - 139
+  - 387
+  phone_num: "987654"
+  soc_id: "123456"

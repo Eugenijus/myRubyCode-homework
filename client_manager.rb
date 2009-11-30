@@ -26,6 +26,15 @@ class Client_manager
     end
     return nil
   end
+
+  def find_client_by_id(client_id)
+    @clients.each do |c|
+      if c.client_id == client_id
+        return c
+      end
+    end
+    return nil
+  end
     
   def find_client(soc_id)
     @clients.each do |c|
@@ -42,6 +51,22 @@ class Client_manager
     end
   end 
   
+  def add_order(order_id, client_id)
+    c = find_client_by_id(client_id)
+    if c!= nil then
+      c.add_order_id(order_id)
+      save_clients
+      return 1
+    end
+    return -1
+  end
+
+  def save_clients()
+    y_c = YAML::dump(@clients)
+    @fh.clean
+    @fh.write_obj(y_c)
+  end
+
   def load_clients
     str = @fh.read_obj_no_par
     if str!=nil && str.size>0 then

@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Wed Nov 11 19:00:51 +0200 2009 with 
+      Generated on Mon Nov 30 19:31:03 +0200 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -174,7 +174,7 @@
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='order_spec_rb.html'> order_spec.rb </a> </td> <td class='lines_total'>
-    <tt> 18 </tt> </td> <td class='lines_code'> <tt> 15 </tt> </td> <td> <table
+    <tt> 30 </tt> </td> <td class='lines_code'> <tt> 24 </tt> </td> <td> <table
     cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
     class='coverage_total'> 100.0% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
@@ -186,27 +186,37 @@
     class='uncovered' width='0' /> </tr> </table> </td> </tr> </table> </td>
     </tr> </tbody> </table><pre><span class="inferred0"><a name="line1"></a> 1 #
     order_spec.rb </span><span class="marked1"><a name="line2"></a> 2 require
-    &quot;rubygems&quot; </span><span class="marked0"><a name="line3"></a> 3
-    require &quot;spec&quot; </span><span class="marked1"><a name="line4"></a> 4
-    require &quot;order&quot; </span><span class="inferred0"><a
-    name="line5"></a> 5 </span><span class="marked1"><a name="line6"></a> 6
-    describe Order do </span><span class="marked0"><a name="line7"></a> 7 it
+    'rubygems' </span><span class="marked0"><a name="line3"></a> 3 require
+    'spec' </span><span class="marked1"><a name="line4"></a> 4 require 'order'
+    </span><span class="inferred0"><a name="line5"></a> 5 </span><span
+    class="marked1"><a name="line6"></a> 6 describe Order do </span><span
+    class="marked0"><a name="line7"></a> 7 before(:each) do </span><span
+    class="marked1"><a name="line8"></a> 8 @t1 = Time.mktime(2009, 11, 24, 10,
+    17) </span><span class="marked0"><a name="line9"></a> 9 @t2 =
+    Time.mktime(2009, 11, 25, 10, 17) end </span><span class="inferred1"><a
+    name="line10"></a>10 </span><span class="marked0"><a name="line11"></a>11 it
     &quot;should let create new order&quot; do </span><span class="marked1"><a
-    name="line8"></a> 8 Order.new(&quot;2009-10-12 19:00&quot;, &quot;2009-10-13
-    19:00&quot;,1,2).should be_instance_of(Order) </span><span
-    class="inferred0"><a name="line9"></a> 9 end </span><span
-    class="inferred1"><a name="line10"></a>10 </span><span class="marked0"><a
-    name="line11"></a>11 it &quot;should have pickup date, return date,
-    garage_id, client_id&quot; do </span><span class="marked1"><a
-    name="line12"></a>12 ord = Order.new(&quot;2009-10-12 19:00&quot;,
-    &quot;2009-10-13 19:00&quot;,1,2) </span><span class="marked0"><a
-    name="line13"></a>13 ord.pickup_date.should == &quot;2009-10-12 19:00&quot;
-    </span><span class="marked1"><a name="line14"></a>14 ord.return_date.should
-    == &quot;2009-10-13 19:00&quot; </span><span class="marked0"><a
-    name="line15"></a>15 ord.garage_id.should == 1 </span><span
-    class="marked1"><a name="line16"></a>16 ord.client_id.should == 2
-    </span><span class="inferred0"><a name="line17"></a>17 end </span><span
-    class="inferred1"><a name="line18"></a>18 end </span></pre>
+    name="line12"></a>12 Order.new(@t1, @t2,2,1,2).should be_instance_of(Order)
+    </span><span class="inferred0"><a name="line13"></a>13 end </span><span
+    class="inferred1"><a name="line14"></a>14 </span><span class="marked0"><a
+    name="line15"></a>15 it &quot;should have pickup time&quot; do </span><span
+    class="marked1"><a name="line16"></a>16 o = Order.new(@t1, @t2, 1, 1, 1)
+    </span><span class="marked0"><a name="line17"></a>17 o.pickup_time.should
+    be_instance_of(Time) end </span><span class="inferred1"><a
+    name="line18"></a>18 </span><span class="marked0"><a name="line19"></a>19 it
+    &quot;should have return time&quot; do </span><span class="marked1"><a
+    name="line20"></a>20 o = Order.new(@t1, @t2, 1, 1, 1) </span><span
+    class="marked0"><a name="line21"></a>21 o.return_time.should
+    be_instance_of(Time) </span><span class="inferred1"><a name="line22"></a>22
+    end </span><span class="inferred0"><a name="line23"></a>23 </span><span
+    class="marked1"><a name="line24"></a>24 it &quot;should have auto_id,
+    garage_id, client_id&quot; do </span><span class="marked0"><a
+    name="line25"></a>25 ord = Order.new(@t1, @t2, 2,1,2) </span><span
+    class="marked1"><a name="line26"></a>26 ord.auto_id.should == 2 </span><span
+    class="marked0"><a name="line27"></a>27 ord.garage_id.should == 1
+    </span><span class="marked1"><a name="line28"></a>28 ord.client_id.should ==
+    2 </span><span class="inferred0"><a name="line29"></a>29 end </span><span
+    class="inferred1"><a name="line30"></a>30 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

@@ -56,6 +56,7 @@ class Bill_manager
     end
   end
   
+  private
   #from file to array
   def load_bills
     str = @fh.read_obj_no_par
@@ -77,6 +78,7 @@ class Bill_manager
     return -1
   end
   
+  public
   def print_bills
     i = 1
     if @bills.length == 0 then
