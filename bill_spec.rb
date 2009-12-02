@@ -80,6 +80,14 @@ describe Bill do
       b5.find_discount.should == (0.90)
   end
 
+  it "should give a 30% discount for rent time >= week" do
+      @order.pickup_time=Time.mktime(2009,12,20,10,00)
+      @order.return_time=Time.mktime(2009,12,27,11.00)
+      #@order.pickup_time.day.should == 24
+      b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
+      b5.find_discount.should == (0.70)
+  end
+
   it "should give no discount for regular days" do
       @order.pickup_time=Time.mktime(2009,11,24,10,00)
       @order.return_time=Time.mktime(2009,11,24,11.00)

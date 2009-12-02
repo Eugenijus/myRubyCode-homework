@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Tue Dec 01 20:13:53 +0200 2009 with 
+      Generated on Wed Dec 02 17:23:34 +0200 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -184,101 +184,101 @@
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
     width='100' cellpadding='0'> <tr> <td class='covered' width='93' /> <td
     class='uncovered' width='7' /> </tr> </table> </td> </tr> </table> </td>
-    </tr> </tbody> </table><pre><span class="inferred1"><a name="line1"></a> 1 #
-    file_helper.rb </span><span class="inferred0"><a name="line2"></a> 2
-    </span><span class="marked1"><a name="line3"></a> 3 class File_helper
-    </span><span class="marked0"><a name="line4"></a> 4 attr_reader :file_name
-    </span><span class="inferred1"><a name="line5"></a> 5 </span><span
-    class="marked0"><a name="line6"></a> 6 def initialize() </span><span
-    class="marked1"><a name="line7"></a> 7 create_if_missing &quot;data&quot;
-    </span><span class="inferred0"><a name="line8"></a> 8 end </span><span
-    class="inferred1"><a name="line9"></a> 9 </span><span class="marked0"><a
+    </tr> </tbody> </table><pre><span class="inferred0"><a name="line1"></a> 1 #
+    file_helper.rb </span><span class="inferred1"><a name="line2"></a> 2
+    </span><span class="marked0"><a name="line3"></a> 3 class File_helper
+    </span><span class="marked1"><a name="line4"></a> 4 attr_reader :file_name
+    </span><span class="inferred0"><a name="line5"></a> 5 </span><span
+    class="marked1"><a name="line6"></a> 6 def initialize() </span><span
+    class="marked0"><a name="line7"></a> 7 create_if_missing &quot;data&quot;
+    </span><span class="inferred1"><a name="line8"></a> 8 end </span><span
+    class="inferred0"><a name="line9"></a> 9 </span><span class="marked1"><a
     name="line10"></a>10 def create_if_missing name </span><span
-    class="marked1"><a name="line11"></a>11 if File.directory?(name) == false
-    </span><span class="marked0"><a name="line12"></a>12 Dir.mkdir(name)
-    </span><span class="inferred1"><a name="line13"></a>13 end </span><span
-    class="inferred0"><a name="line14"></a>14 end </span><span
-    class="inferred1"><a name="line15"></a>15 </span><span class="marked0"><a
-    name="line16"></a>16 def file_name=(value) </span><span class="marked1"><a
-    name="line17"></a>17 @file_name = value </span><span class="marked0"><a
+    class="marked0"><a name="line11"></a>11 if File.directory?(name) == false
+    </span><span class="marked1"><a name="line12"></a>12 Dir.mkdir(name)
+    </span><span class="inferred0"><a name="line13"></a>13 end </span><span
+    class="inferred1"><a name="line14"></a>14 end </span><span
+    class="inferred0"><a name="line15"></a>15 </span><span class="marked1"><a
+    name="line16"></a>16 def file_name=(value) </span><span class="marked0"><a
+    name="line17"></a>17 @file_name = value </span><span class="marked1"><a
     name="line18"></a>18 if File.exists?(@file_name) == false then </span><span
-    class="marked1"><a name="line19"></a>19 puts &quot;#{@file_name} doesn't
-    exist&quot; </span><span class="marked0"><a name="line20"></a>20 file =
-    File.new(@file_name, &quot;w&quot;) </span><span class="marked1"><a
+    class="marked0"><a name="line19"></a>19 puts &quot;#{@file_name} doesn't
+    exist&quot; </span><span class="marked1"><a name="line20"></a>20 file =
+    File.new(@file_name, &quot;w&quot;) </span><span class="marked0"><a
     name="line21"></a>21 puts &quot;#{@file_name} created&quot; </span><span
-    class="inferred0"><a name="line22"></a>22 end </span><span
-    class="marked1"><a name="line23"></a>23 return value </span><span
-    class="inferred0"><a name="line24"></a>24 end </span><span
-    class="inferred1"><a name="line25"></a>25 </span><span class="marked0"><a
-    name="line26"></a>26 def get_last_id </span><span class="inferred1"><a
+    class="inferred1"><a name="line22"></a>22 end </span><span
+    class="marked0"><a name="line23"></a>23 return value </span><span
+    class="inferred1"><a name="line24"></a>24 end </span><span
+    class="inferred0"><a name="line25"></a>25 </span><span class="marked1"><a
+    name="line26"></a>26 def get_last_id </span><span class="inferred0"><a
     name="line27"></a>27 #read from file, find last id </span><span
-    class="marked0"><a name="line28"></a>28 file = nil </span><span
-    class="marked1"><a name="line29"></a>29 if File.exists?(@file_name) == false
-    then </span><span class="uncovered0"><a name="line30"></a>30 #puts
-    &quot;#{@file_name} doesn't exist&quot; </span><span class="uncovered1"><a
+    class="marked1"><a name="line28"></a>28 file = nil </span><span
+    class="marked0"><a name="line29"></a>29 if File.exists?(@file_name) == false
+    then </span><span class="uncovered1"><a name="line30"></a>30 #puts
+    &quot;#{@file_name} doesn't exist&quot; </span><span class="uncovered0"><a
     name="line31"></a>31 file = File.new(@file_name, &quot;w&quot;) </span><span
-    class="uncovered0"><a name="line32"></a>32 #puts &quot;#{@file_name}
-    created&quot; </span><span class="uncovered1"><a name="line33"></a>33 return
-    0 </span><span class="uncovered0"><a name="line34"></a>34 end </span><span
-    class="marked1"><a name="line35"></a>35 if File.exists?(@file_name) == true
-    </span><span class="marked0"><a name="line36"></a>36 file =
-    File.open(@file_name, &quot;r+&quot;) </span><span class="inferred1"><a
-    name="line37"></a>37 end </span><span class="inferred0"><a
-    name="line38"></a>38 </span><span class="marked1"><a name="line39"></a>39
-    line = 0 </span><span class="marked0"><a name="line40"></a>40 line =
-    file.gets.to_i </span><span class="inferred1"><a name="line41"></a>41
-    </span><span class="inferred0"><a name="line42"></a>42 #set id </span><span
-    class="marked1"><a name="line43"></a>43 tmp_id = line </span><span
-    class="inferred0"><a name="line44"></a>44 </span><span class="inferred1"><a
+    class="uncovered1"><a name="line32"></a>32 #puts &quot;#{@file_name}
+    created&quot; </span><span class="uncovered0"><a name="line33"></a>33 return
+    0 </span><span class="uncovered1"><a name="line34"></a>34 end </span><span
+    class="marked0"><a name="line35"></a>35 if File.exists?(@file_name) == true
+    </span><span class="marked1"><a name="line36"></a>36 file =
+    File.open(@file_name, &quot;r+&quot;) </span><span class="inferred0"><a
+    name="line37"></a>37 end </span><span class="inferred1"><a
+    name="line38"></a>38 </span><span class="marked0"><a name="line39"></a>39
+    line = 0 </span><span class="marked1"><a name="line40"></a>40 line =
+    file.gets.to_i </span><span class="inferred0"><a name="line41"></a>41
+    </span><span class="inferred1"><a name="line42"></a>42 #set id </span><span
+    class="marked0"><a name="line43"></a>43 tmp_id = line </span><span
+    class="inferred1"><a name="line44"></a>44 </span><span class="inferred0"><a
     name="line45"></a>45 #increment id in the file </span><span
-    class="marked0"><a name="line46"></a>46 line = line + 1 </span><span
-    class="marked1"><a name="line47"></a>47 file.rewind </span><span
-    class="marked0"><a name="line48"></a>48 file.write(line) </span><span
-    class="inferred1"><a name="line49"></a>49 </span><span class="marked0"><a
-    name="line50"></a>50 file.close </span><span class="inferred1"><a
-    name="line51"></a>51 </span><span class="marked0"><a name="line52"></a>52
-    return tmp_id </span><span class="inferred1"><a name="line53"></a>53 end
-    </span><span class="inferred0"><a name="line54"></a>54 </span><span
-    class="marked1"><a name="line55"></a>55 def write_obj(obj) </span><span
-    class="marked0"><a name="line56"></a>56 if File.exists?(@file_name) == false
-    </span><span class="uncovered1"><a name="line57"></a>57 file =
-    File.new(@file_name, &quot;w&quot;) </span><span class="uncovered0"><a
-    name="line58"></a>58 end </span><span class="marked1"><a
+    class="marked1"><a name="line46"></a>46 line = line + 1 </span><span
+    class="marked0"><a name="line47"></a>47 file.rewind </span><span
+    class="marked1"><a name="line48"></a>48 file.write(line) </span><span
+    class="inferred0"><a name="line49"></a>49 </span><span class="marked1"><a
+    name="line50"></a>50 file.close </span><span class="inferred0"><a
+    name="line51"></a>51 </span><span class="marked1"><a name="line52"></a>52
+    return tmp_id </span><span class="inferred0"><a name="line53"></a>53 end
+    </span><span class="inferred1"><a name="line54"></a>54 </span><span
+    class="marked0"><a name="line55"></a>55 def write_obj(obj) </span><span
+    class="marked1"><a name="line56"></a>56 if File.exists?(@file_name) == false
+    </span><span class="uncovered0"><a name="line57"></a>57 file =
+    File.new(@file_name, &quot;w&quot;) </span><span class="uncovered1"><a
+    name="line58"></a>58 end </span><span class="marked0"><a
     name="line59"></a>59 if File.exists?(@file_name) == true </span><span
-    class="marked0"><a name="line60"></a>60 file = File.open(@file_name,
-    &quot;r+&quot;) </span><span class="marked1"><a name="line61"></a>61
-    file.write(obj) </span><span class="marked0"><a name="line62"></a>62
-    file.close </span><span class="inferred1"><a name="line63"></a>63 end
-    </span><span class="inferred0"><a name="line64"></a>64 end </span><span
-    class="inferred1"><a name="line65"></a>65 </span><span class="marked0"><a
-    name="line66"></a>66 def read_obj(file_name) </span><span class="marked1"><a
+    class="marked1"><a name="line60"></a>60 file = File.open(@file_name,
+    &quot;r+&quot;) </span><span class="marked0"><a name="line61"></a>61
+    file.write(obj) </span><span class="marked1"><a name="line62"></a>62
+    file.close </span><span class="inferred0"><a name="line63"></a>63 end
+    </span><span class="inferred1"><a name="line64"></a>64 end </span><span
+    class="inferred0"><a name="line65"></a>65 </span><span class="marked1"><a
+    name="line66"></a>66 def read_obj(file_name) </span><span class="marked0"><a
     name="line67"></a>67 if File.exists?(file_name) == false </span><span
-    class="marked0"><a name="line68"></a>68 puts &quot;Error: #{file_name}
-    doesn't exist&quot; </span><span class="marked1"><a name="line69"></a>69
-    return nil </span><span class="inferred0"><a name="line70"></a>70 end
-    </span><span class="marked1"><a name="line71"></a>71 if
-    File.exists?(file_name) == true </span><span class="marked0"><a
-    name="line72"></a>72 str = &quot;&quot; </span><span class="marked1"><a
+    class="marked1"><a name="line68"></a>68 puts &quot;Error: #{file_name}
+    doesn't exist&quot; </span><span class="marked0"><a name="line69"></a>69
+    return nil </span><span class="inferred1"><a name="line70"></a>70 end
+    </span><span class="marked0"><a name="line71"></a>71 if
+    File.exists?(file_name) == true </span><span class="marked1"><a
+    name="line72"></a>72 str = &quot;&quot; </span><span class="marked0"><a
     name="line73"></a>73 file = File.open(file_name, &quot;r+&quot;)
-    </span><span class="marked0"><a name="line74"></a>74 file.each_line do
-    |line| </span><span class="marked1"><a name="line75"></a>75 str += line
-    </span><span class="inferred0"><a name="line76"></a>76 end </span><span
-    class="marked1"><a name="line77"></a>77 return str </span><span
-    class="inferred0"><a name="line78"></a>78 end </span><span
-    class="inferred1"><a name="line79"></a>79 end </span><span
-    class="inferred0"><a name="line80"></a>80 </span><span class="marked1"><a
-    name="line81"></a>81 def read_obj_no_par </span><span class="marked0"><a
+    </span><span class="marked1"><a name="line74"></a>74 file.each_line do
+    |line| </span><span class="marked0"><a name="line75"></a>75 str += line
+    </span><span class="inferred1"><a name="line76"></a>76 end </span><span
+    class="marked0"><a name="line77"></a>77 return str </span><span
+    class="inferred1"><a name="line78"></a>78 end </span><span
+    class="inferred0"><a name="line79"></a>79 end </span><span
+    class="inferred1"><a name="line80"></a>80 </span><span class="marked0"><a
+    name="line81"></a>81 def read_obj_no_par </span><span class="marked1"><a
     name="line82"></a>82 return read_obj(@file_name) </span><span
-    class="inferred1"><a name="line83"></a>83 end </span><span
-    class="inferred0"><a name="line84"></a>84 </span><span class="marked1"><a
-    name="line85"></a>85 def clean </span><span class="marked0"><a
+    class="inferred0"><a name="line83"></a>83 end </span><span
+    class="inferred1"><a name="line84"></a>84 </span><span class="marked0"><a
+    name="line85"></a>85 def clean </span><span class="marked1"><a
     name="line86"></a>86 if File.exists?(@file_name) == true </span><span
-    class="marked1"><a name="line87"></a>87 file = File.delete(@file_name)
-    </span><span class="marked0"><a name="line88"></a>88 file =
-    File.new(@file_name, &quot;w&quot;) </span><span class="inferred1"><a
-    name="line89"></a>89 end </span><span class="inferred0"><a
-    name="line90"></a>90 end </span><span class="inferred1"><a
-    name="line91"></a>91 </span><span class="inferred0"><a name="line92"></a>92
+    class="marked0"><a name="line87"></a>87 file = File.delete(@file_name)
+    </span><span class="marked1"><a name="line88"></a>88 file =
+    File.new(@file_name, &quot;w&quot;) </span><span class="inferred0"><a
+    name="line89"></a>89 end </span><span class="inferred1"><a
+    name="line90"></a>90 end </span><span class="inferred0"><a
+    name="line91"></a>91 </span><span class="inferred1"><a name="line92"></a>92
     end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov

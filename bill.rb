@@ -41,6 +41,9 @@ class Bill
         return 0.9
       end
     end
+    if (@rent_time >= 24.0*7) then
+      return 0.7
+    end
     if (@rent_time >= 24.0) then
       return 0.9
     end
