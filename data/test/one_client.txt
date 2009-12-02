@@ -1,0 +1,12 @@
+--- 
+- !ruby/object:Client 
+  address: "-"
+  client_id: 12
+  driving_license_id: 123NNN2343
+  email: "-"
+  lastname: ClientLastName
+  name: Client1
+  order_ids: 
+  - 410
+  phone_num: "86545678"
+  soc_id: "13543234543"

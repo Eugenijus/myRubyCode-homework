@@ -1,0 +1,8 @@
+--- 
+- !ruby/object:Auto 
+  auto_id: 4
+  brand: VW
+  color: Red
+  model: Golf
+  reg_num: 245FBE
+  type: full-size

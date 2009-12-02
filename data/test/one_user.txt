@@ -1,0 +1,7 @@
+--- 
+- !ruby/object:User 
+  lastname: Sabaliauskas
+  name: Eugenijus
+  password: pass
+  user_id: 181
+  username: admin
