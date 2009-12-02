@@ -4,6 +4,29 @@ require 'spec'
 require 'client'
 require 'client_manager'
 
+=begin
+Spec::Matchers.define :have_digits do |expected|
+  match do |actual|
+    if actual.class == Fixnum then
+      actual = actual.to_s
+    end
+    actual.size == expected
+  end
+
+  failure_message_for_should do |actual|
+    "expected that #{actual} would have #{expected} digits"
+  end
+  
+  failure_message_for_should_not do |actual|
+    "expected that #{actual} would not have #{expected} digits"
+  end
+
+  description do
+    "be more than #{expected}"
+  end
+end
+=end
+
 describe Client do
   it "should let create new client" do
       Client.new("Name", "Lastname", "865512345", "38501010001", "NZD09876").should be_instance_of(Client) 
@@ -54,6 +77,17 @@ describe Client, "add_order_id" do
     a.add_order_id(nil).should be(false)
   end
 end
+
+=begin
+describe Client, "phone_num" do
+  it "should have 9 digits in phone number" do
+    a = Client.new("Name", "Lastname", "865512345", "38501010001", "NZD09876")
+    a.phone_num.should have_digits(9)
+  end
+
+end
+=end
+
 
 describe Client, "to_string" do
   it "should return string" do

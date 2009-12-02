@@ -4,6 +4,7 @@ require 'spec'
 require 'order'
 require 'bill'
 require 'bill_manager'
+
 =begin
 Spec::Matchers.define :be_a_multiple_of do |expected|
   match do |actual|
@@ -15,6 +16,19 @@ Spec::Matchers.define :be_more_than do |expected|
   match do |actual|
     actual > expected
   end
+
+  failure_message_for_should do |actual|
+    "expected that #{actual} would be a more than #{expected}"
+  end
+  
+  failure_message_for_should_not do |actual|
+    "expected that #{actual} would not be more than #{expected}"
+  end
+
+  description do
+    "be more than #{expected}"
+  end
+
 end
 =end
 describe Bill do
@@ -99,17 +113,18 @@ describe Bill do
       b5 = Bill.new(@order, @rate) #.should be_instance_of(Bill)
       str = b5.to_string
       b5.to_string.should eql(b5.to_string)
-  end
+  end   
+end
 
 =begin
-  it "should not have negative total" do
+describe Bill, "total" do
+  it "should not be negative" do
     b5 = Bill.new(@order, @rate)
     total = b5.find_total
     total.should be_more_than(0)
   end
-=end
-   
 end
+=end
 
 describe Bill_manager do
   before(:each) do
