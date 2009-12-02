@@ -47,38 +47,39 @@ Klientas:
 	- nuomos tarifas,
 	- totali suma
 	
-testu sk:
-Auto 9
-Bill 6
-Client 5
-Order 4
-bl 9 
-User 8
-= 41
+5 naudoti matcheriai:
+be_instance_of
+be
+eql (bill_spec.rb)
+include (client_spec.rb)
+have (client_spec.rb)
+
+Valdymo sistema turi:
+- leisti redaguoti/trinti vartotojus ir ju duomenis
+
+Vartotojas gali:
+- sukurti nauja klienta ir red. jo duomenis
+- sukurti uzsakyma
+- is anksto isnuomoti klientui automobili ir irasyti i tvarkarasti
+  - paemimo data, laikas
+  - paemimo vieta (garazai)
+  - grazinimo data, laikas
+  - atlikti apmokejima
+
+Garazas tures:
+- adresa
 ================================================================
 NEPADARYTA:
 
 Vartotojas gali israshyti saskaita:
 	- papildomos paslaugos
 
-Valdymo sistema turi:
-- leisti redaguoti/trinti vartotojus ir ju duomenis
-
 Vartotojas gali:
 - sukurti nauja garaza
-- sukurti nauja klienta ir red. jo duomenis
-- sukurti uzsakyma
 - nustatyti mokesti uz automobiliu nuoma/val.
 - paziureti kurie automobiliai garaze neuzimti
-- is anksto isnuomoti klientui automobili ir irasyti i tvarkarasti
-	- paemimo data, laikas
-	- paemimo vieta (garazai)
-	- grazinimo data, laikas
-	- grazinimo vieta
-- atlikti apmokejima
 
 Garazas tures:
-- adresa
 - max automoboliu vietu skaiciu
 - automobilius (array?)
 - parkavimo vietos (uzimta/neuzimta)

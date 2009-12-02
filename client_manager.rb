@@ -68,6 +68,7 @@ class Client_manager
   end
 
   def load_clients
+    @clients = Array.new
     str = @fh.read_obj_no_par
     if str!=nil && str.size>0 then
       c_arr = YAML::load(str)
@@ -87,6 +88,44 @@ class Client_manager
     return -1
   end
   
+  def change_clients_file(msg)
+    @clients_file = msg
+    @fh = File_helper.new
+    @fh.file_name=@clients_file
+  end
+
+ #=============
+  def delete_at(i)
+    if @clients.length > i and i != -1 then
+      @clients[i] = nil
+      @clients = @clients.compact #removes nils
+      save_clients
+      return true
+    end
+    return false
+  end
+  
+  def delete_client(client_id)
+    c = find_client_by_id(client_id)
+    if c != nil then
+      i = what_is_index_of(c.client_id)
+      return delete_at(i)
+    end
+    return false
+  end
+  
+  def what_is_index_of(client_id)
+    i = 0
+    while (i<@clients.length) do
+      if @clients.at(i).client_id == client_id then
+        return i
+      end
+      i=i+1
+    end
+    return -1
+  end
+#====================
+
   def print_clients
     i = 1
     if @clients.length == 0 then

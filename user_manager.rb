@@ -52,6 +52,7 @@ class User_manager
   
   #from file to array
   def load_users
+    @users = Array.new
     str = @fh.read_obj_no_par
     if str!=nil && str.size>0 then
       u_arr = YAML::load(str)
@@ -69,6 +70,12 @@ class User_manager
     end
     puts "No users were found!"
     return -1
+  end
+
+  def change_users_file(msg)
+    @users_file = msg
+    @fh = File_helper.new
+    @fh.file_name=@users_file
   end
   
   def delete_at(i)
@@ -91,7 +98,8 @@ class User_manager
       if @users.at(i).username.eql?(username) then
         return i
       end
-      i=i+1    end
+      i=i+1
+    end
   end
   
   def print_users
@@ -104,5 +112,6 @@ class User_manager
       puts u.to_string
       i = i+1
     end
+    return 1
   end
 end

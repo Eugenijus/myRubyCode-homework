@@ -20,15 +20,17 @@ class File_helper
       file = File.new(@file_name, "w")
       puts "#{@file_name} created"
     end
+    return value
 	end
 	
 	def get_last_id
 		#read from file, find last id
 		file = nil
 		if File.exists?(@file_name) == false then
-			puts "#{@file_name} doesn't exist"
+			#puts "#{@file_name} doesn't exist"
 			file = File.new(@file_name, "w")
-			puts "#{@file_name} created"
+			#puts "#{@file_name} created"
+      return 0
 		end
 		if File.exists?(@file_name) == true
 			file = File.open(@file_name, "r+")

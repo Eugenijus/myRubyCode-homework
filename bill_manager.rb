@@ -35,6 +35,12 @@ class Bill_manager
     return nil
   end
   
+  def change_bills_file(msg)
+    @bills_file = msg
+    @fh = File_helper.new
+    @fh.file_name=@bills_file
+  end
+
   def get_bill_info(bill_id)
     bill_obj = find_bill(bill_id)
     if bill_obj != nil
@@ -56,9 +62,9 @@ class Bill_manager
     end
   end
   
-  private
   #from file to array
   def load_bills
+    @bills = Array.new
     str = @fh.read_obj_no_par
     if str!=nil && str.size>0 then
       b_arr = YAML::load(str)
@@ -77,8 +83,47 @@ class Bill_manager
     puts "No bills were found!"
     return -1
   end
+
+  def find_bill_by_id(bill_id)
+    @bills.each do |c|
+      if c.bill_id == bill_id
+        return c
+      end
+    end
+    return nil
+  end
+ #=============
+  def delete_at(i)
+    if @bills.length > i and i != -1 then
+      @bills[i] = nil
+      @bills = @bills.compact #removes nils
+      save_bills
+      return true
+    end
+    return false
+  end
   
-  public
+  def delete_bill(bill_id)
+    c = find_bill_by_id(bill_id)
+    if c != nil then
+      i = what_is_index_of(c.bill_id)
+      return delete_at(i)
+    end
+    return false
+  end
+  
+  def what_is_index_of(bill_id)
+    i = 0
+    while (i<@bills.length) do
+      if @bills.at(i).bill_id == bill_id then
+        return i
+      end
+      i=i+1
+    end
+    return -1
+  end
+#====================
+
   def print_bills
     i = 1
     if @bills.length == 0 then

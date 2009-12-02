@@ -172,7 +172,8 @@ class Ui
           print " "
           i=i+1
         end
-        type = gets.to_i-1
+        #if user enters 1, then we take 0th element from array
+        type = gets.to_i-1 
         puts at.types[type]
         color = get_console_string("Color:")
         @am.add_car(reg_num, brand, model, type, color)

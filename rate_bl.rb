@@ -25,7 +25,7 @@ class Rate_bl
       @rate = 100
     when at.types[5]
       @rate = 120   
-          
+    #for other types (from 6 to 8) rate is 100
     else
       @rate = 100
     end

@@ -62,19 +62,22 @@ class Auto_manager
   end
     
   def delete_at(i)
-    if @cars.length > i then
+    if @cars.length > i and i != -1 then
       @cars[i] = nil
       @cars = @cars.compact #removes nils
       save_cars
       return true
     end
-    false
+    return false
   end
   
   def delete_auto(auto_id)
     c = find_car_by_id(auto_id)
-    i = what_is_index_of(c.auto_id)
-    delete_at(i)
+    if c != nil then
+      i = what_is_index_of(c.auto_id)
+    return delete_at(i)
+    end
+    return false
   end
   
   def what_is_index_of(auto_id)
@@ -85,6 +88,7 @@ class Auto_manager
       end
       i=i+1
     end
+    return -1
   end  
   #===
   
@@ -95,11 +99,14 @@ class Auto_manager
   end
   
   def load_cars
+    @cars = Array.new
     str = @fh.read_obj_no_par
+    #puts str
     if str!=nil && str.size>0 then
       c_arr = YAML::load(str)
       set_cars(c_arr)
       i = @cars.size
+      #puts "car size: #{@cars.size}"
       print "Successfully loaded #{i} "
       if i>1 
         puts "cars!"
@@ -112,6 +119,13 @@ class Auto_manager
     end
     puts "No cars were found!"
     return -1
+  end
+  
+  def change_cars_file(msg)
+    @cars_file = msg
+    @fh = File_helper.new
+    @fh.file_name=@cars_file
+    #puts "changed cars file to #{msg}"
   end
   
   def print_cars

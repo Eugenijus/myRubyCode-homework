@@ -50,6 +50,13 @@ describe User, "user_id" do
 	
 end
 
+describe User, "to_string" do
+  it "should return string" do
+    a = User.new("account2","randompass2", "randomname", "randomlastname")
+    a.to_string.should be_instance_of(String)
+  end
+end
+
 describe User_manager do
 	it "should let create user_manager" do
 		um = User_manager.new
@@ -65,4 +72,27 @@ describe User_manager do
 		um2.find_user("username").should be_instance_of(User)
 		um2.delete_user("username")
 	end
+
+  it "should not let add user with same username" do
+    um = User_manager.new
+    user1 = um.add_user("account2","randompass2", "randomname", "randomlastname")
+    user2 = um.add_user("account2","randompass2", "randomname", "randomlastname")
+    um.delete_user(user1.username)
+    user2.should be(nil)
+  end
+
+  it "should have print_users method which returns -1 if no users where printed" do
+    um = User_manager.new
+    um.change_users_file("data/test/empty_text_file.txt")
+    um.load_users
+    um.print_users.should == -1
+  end
+
+  it "should have print_user method which returns 1 if one was printed" do
+    um = User_manager.new
+    um.change_users_file("data/test/one_user.txt")
+    um.load_users
+    um.print_users.should == 1
+  end
+
 end

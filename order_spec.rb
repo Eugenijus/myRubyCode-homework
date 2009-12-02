@@ -6,7 +6,8 @@ require 'order'
 describe Order do
   before(:each) do
     @t1 = Time.mktime(2009, 11, 24, 10, 17)
-    @t2 = Time.mktime(2009, 11, 25, 10, 17)  end
+    @t2 = Time.mktime(2009, 11, 25, 10, 17)
+  end
 	
   it "should let create new order" do
 		Order.new(@t1, @t2,2,1,2).should be_instance_of(Order)
@@ -14,7 +15,8 @@ describe Order do
   
 	it "should have pickup time" do
 	  o = Order.new(@t1, @t2, 1, 1, 1)
-	  o.pickup_time.should be_instance_of(Time)	end
+	  o.pickup_time.should be_instance_of(Time)
+	end
 	
   it "should have return time" do
     o = Order.new(@t1, @t2, 1, 1, 1)
@@ -27,4 +29,11 @@ describe Order do
 		ord.garage_id.should == 1
 		ord.client_id.should == 2
 	end
+end
+
+describe Order, "to_string" do
+  it "should return string" do
+    a = Order.new(@t1, @t2,2,1,2)
+    a.to_string.should be_instance_of(String)
+  end
 end

@@ -26,7 +26,11 @@ class Client
     if @order_ids == nil then
       @order_ids = Array.new
     end
-    @order_ids.push(order_id)
+    if order_id !=nil then
+      @order_ids.push(order_id)
+      return true
+    end
+    return false
   end
   
   def to_string
