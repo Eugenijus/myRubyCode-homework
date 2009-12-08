@@ -380,6 +380,10 @@ class Ui
         puts "Error: wrong date or time"
         return nil
       end
+      if (Time.now > time1) then
+        puts "Error: date and time should be not in the past!"
+        return nil
+      end
       return time1
     end
 

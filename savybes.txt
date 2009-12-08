@@ -11,6 +11,24 @@ B) SAVYBES:
 
 C) Pagrindines savybes:
 
+===========================================================
+
+Testai:
+is viso: 92
+
+5 naudoti matcheriai:
+be_instance_of
+be
+eql (bill_spec.rb)
+include (client_spec.rb)
+have (client_spec.rb)
+
+custom matcheriai:
+be_more_than (bill_spec)
+have_digits (client_spec)
+
+===========================================================
+
 PADARYTA:
 
 * Valdymo sistema leidzia sukurti vartotoja
@@ -47,13 +65,6 @@ Klientas:
 	- nuomos tarifas,
 	- totali suma
 	
-5 naudoti matcheriai:
-be_instance_of
-be
-eql (bill_spec.rb)
-include (client_spec.rb)
-have (client_spec.rb)
-
 Valdymo sistema turi:
 - leisti redaguoti/trinti vartotojus ir ju duomenis
 
@@ -68,6 +79,7 @@ Vartotojas gali:
 
 Garazas tures:
 - adresa
+
 ================================================================
 NEPADARYTA:
 
