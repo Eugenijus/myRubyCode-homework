@@ -1,13 +1,12 @@
 #!/usr/bin/ruby -w
 # main.rb
 require 'yaml'
-require "user"
-require "auto"
-require "order"
-require "ui"
-require "file_helper"
-require "user_manager"
-require "auto_types"
+require 'user'
+require 'auto'
+require 'order'
+require 'ui'
+require 'file_helper'
+require 'user_manager'
 require 'date_time_bl'
 
 #o = Order.new("2009-10-12 19:00", "2009-10-13 19:00",1,2)

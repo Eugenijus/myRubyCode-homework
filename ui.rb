@@ -8,10 +8,10 @@ require 'order_manager'
 require 'bill_manager'
 require 'garage'
 require 'rate_bl'
-require 'date_time_bl'
+#require 'date_time_bl'
   
 class Ui
-  attr_reader :um, :am, :cm, :om, :bm, :garage, :rate_bl, :date_time_bl
+  attr_reader :um, :am, :cm, :om, :bm, :garage, :rate_bl, :date_time_bl, :this_year, :this_month
   
   def initialize()
       @um = User_manager.new
@@ -20,7 +20,11 @@ class Ui
       @om = Order_manager.new
       @bm = Bill_manager.new
       @rate_bl = Rate_bl.new
-      @date_time_bl = Date_time_bl.new
+      
+      @this_year = Time.now.year
+      @this_month = Time.now.month
+
+      #@date_time_bl = Date_time_bl.new
       @garage = Garage.new("124 Ruby road", "10211 New York, USA", "123456543")
       run
   end
@@ -343,29 +347,29 @@ class Ui
     def get_console_date_and_time(msg)
       puts msg
       y = get_console_int("Year:")
-      if @date_time_bl.check_year(y) == false then
+      if check_year(y) == false then
         puts "Error: wrong Year parameter"
         return nil
       end
       m = get_console_int("Month:")
-      if @date_time_bl.check_month(m) == false then
+      if check_month(m) == false then
         puts "Error: wrong Month parameter"
           return nil
       end
 
       d = get_console_int("Day:")
-      if d == nil or d == '\n' then
+      if check_day(d) == false then
         puts "Error: wrong Day parameter"
           return nil
       end
       
       h = get_console_int("Hours:")
-      if h == nil or h == '\n' then
+      if check_hour(h) == false then
         puts "Error: wrong Hours parameter"
           return nil
       end
       mins = get_console_int("Minutes:")
-      if mins == nil or mins == '\n' then
+      if check_mins(mins) == false then
           puts "Error: wrong Minutes  parameter"
           return nil
       end
@@ -378,6 +382,89 @@ class Ui
       end
       return time1
     end
+
+#=== start of date and time checkers
+
+  def check_year(year)
+    if year.class != Fixnum then
+      puts "year should be a number"
+      return false
+    end
+    
+    if year < @this_year then
+      puts "year is before 2009"
+      return false
+    end
+
+    if year > (@this_year+10) then
+      puts "year should be before #{@this_year+10}"
+      return false
+    end
+
+    return true
+  end
+
+  def check_month(month)
+    if month.class != Fixnum then
+      puts "month #{month} should be a number, not #{month.class}"
+      return false
+    end
+
+    if month > 12 or month < 1 then
+      puts "month should be in range 1..12"
+      return false
+    end
+    
+    return true
+  end
+  
+  def check_day(day)
+    if check_if_num(day) == false then
+      puts "day #{day} should be a number, not #{day.class}"
+      return false
+    end
+
+    if day > 31 or day < 1 then
+      puts "day should be in range 1..31"
+      return false
+    end
+    return true
+  end
+
+  def check_hour(hour)
+    if check_if_num(hour) == false then
+      puts "day #{hour} should be a number, not #{hour.class}"
+      return false
+    end
+  
+    if hour < 0 or hour > 23 then
+      puts "day should be in range 0..23"
+      return false
+    end
+    return true
+  end
+
+  def check_mins(mins)
+    if check_if_num(mins) == false then
+      puts "day #{mins} should be a number, not #{mins.class}"
+      return false
+    end
+  
+    if mins < 0 or mins > 59 then
+      puts "day should be in range 0..59"
+      return false
+    end
+    return true
+  end
+
+  def check_if_num(num)
+    if num.class != Fixnum then
+      return false
+    end
+    return true
+  end
+
+#== end of date and time checkers
     
     def get_console_int(msg)
       print msg

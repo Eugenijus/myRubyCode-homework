@@ -6,11 +6,6 @@ require 'bill'
 require 'bill_manager'
 
 =begin
-Spec::Matchers.define :be_a_multiple_of do |expected|
-  match do |actual|
-    actual % expected == 0
-  end
-end
 
 Spec::Matchers.define :be_more_than do |expected|
   match do |actual|
@@ -28,8 +23,8 @@ Spec::Matchers.define :be_more_than do |expected|
   description do
     "be more than #{expected}"
   end
-
 end
+
 =end
 describe Bill do
   before(:each) do

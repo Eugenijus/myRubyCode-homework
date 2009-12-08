@@ -2,7 +2,6 @@
 require 'rubygems'
 require 'spec'
 require 'auto'
-require 'auto_types'
 require 'auto_manager'
 
 describe Auto do
@@ -11,7 +10,7 @@ describe Auto do
   end
 	
   it "should have auto_id, reg. number, brand, name, type, color" do
-    at = Auto_types.new.types
+    at = Auto_manager.new.types
     mycar = Auto.new("035NNAS", "BMW", "335i", at[4], "silver")
     mycar.auto_id.should_not == nil
 		
@@ -71,7 +70,7 @@ describe Auto_manager do
     am = Auto_manager.new
     car3 = am.add_car("ASD124", "VW", "Gold", 1, "red")
     am.delete_auto(car3.auto_id) #just making sure its not saved in file
-    car3.type.should == Auto_types.new.types[1]
+    car3.type.should == Auto_manager.new.types[1]
     #this will work too
     #car3.type.should == "compact"
   end
@@ -144,10 +143,10 @@ describe Auto, "to_string" do
   end
 end
 
-describe Auto_types do
+describe Auto_manager, "types" do
   it "should contain exact auto types" do
-    at = Auto_types.new
+    at = Auto_manager.new.types
     my_types = ["economy", "compact", "full-size", "luxury", "convertable", "sports-car", "minivan", "pick-up-truck", "van"]
-    at.types.should == my_types
+    at.should == my_types
   end
 end

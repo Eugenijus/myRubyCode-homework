@@ -1,7 +1,7 @@
 #!/usr/bin/ruby -w
 # rate_bl.rb
 
-require 'auto_types'
+require 'auto_manager'
 
 class Rate_bl
   attr_reader :rate
@@ -11,7 +11,7 @@ class Rate_bl
   end
   
   def count_rate(car_type)
-    at = Auto_types.new
+    at = Auto_manager.new
     case car_type
     when at.types[0]
       @rate = 70

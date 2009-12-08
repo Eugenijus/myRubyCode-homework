@@ -4,14 +4,15 @@
 require 'yaml'
 require "file_helper"
 require "auto"
-require "auto_types"
+#require "auto_types"
 
 class Auto_manager
-  attr_reader :cars, :cars_file, :fh
+  attr_reader :cars, :cars_file, :fh, :types
   
   def initialize()
+    @types= ["economy", "compact", "full-size", "luxury", "convertable", "sports-car", "minivan", "pick-up-truck", "van"];
     @cars = Array.new
-    @at = Auto_types.new
+    #@at = Auto_types.new
     @cars_file = "data/all_cars.txt"
     @fh = File_helper.new
     @fh.file_name=@cars_file
@@ -24,7 +25,7 @@ class Auto_manager
     if find_car(reg_num) == nil then
       true_type = ""
       if type.class == Fixnum
-        true_type = @at.types[type]
+        true_type = @types[type]
       end
             
       c = Auto.new(reg_num, brand, model, true_type, color)
