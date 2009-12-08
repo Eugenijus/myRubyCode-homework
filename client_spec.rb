@@ -27,6 +27,16 @@ Spec::Matchers.define :have_digits do |expected|
 end
 =end
 
+=begin
+describe Client, "phone_num" do
+  it "should have 9 digits in phone number" do
+    a = Client.new("Name", "Lastname", "865512345", "38501010001", "NZD09876")
+    a.phone_num.should have_digits(9)
+  end
+
+end
+=end
+
 describe Client do
   it "should let create new client" do
       Client.new("Name", "Lastname", "865512345", "38501010001", "NZD09876").should be_instance_of(Client) 
@@ -77,17 +87,6 @@ describe Client, "add_order_id" do
     a.add_order_id(nil).should be(false)
   end
 end
-
-=begin
-describe Client, "phone_num" do
-  it "should have 9 digits in phone number" do
-    a = Client.new("Name", "Lastname", "865512345", "38501010001", "NZD09876")
-    a.phone_num.should have_digits(9)
-  end
-
-end
-=end
-
 
 describe Client, "to_string" do
   it "should return string" do

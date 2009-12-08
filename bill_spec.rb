@@ -26,6 +26,17 @@ Spec::Matchers.define :be_more_than do |expected|
 end
 
 =end
+
+=begin
+describe Bill, "total" do
+  it "should not be negative" do
+    b5 = Bill.new(@order, @rate)
+    total = b5.find_total
+    total.should be_more_than(0)
+  end
+end
+=end
+
 describe Bill do
   before(:each) do
     @t1 = Time.mktime(2009, 11, 24, 10, 17)
@@ -110,16 +121,6 @@ describe Bill do
       b5.to_string.should eql(b5.to_string)
   end   
 end
-
-=begin
-describe Bill, "total" do
-  it "should not be negative" do
-    b5 = Bill.new(@order, @rate)
-    total = b5.find_total
-    total.should be_more_than(0)
-  end
-end
-=end
 
 describe Bill_manager do
   before(:each) do
