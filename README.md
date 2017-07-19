@@ -5,7 +5,7 @@ The goal was to learn TDD and Ruby language by creating a project and I choose t
 
 ===========================================================
 Reikalavimai is savybes.txt :
-===========================================================
+
 A) Automobiliu nuomavimo valdymo sistema.
 
 0) Vartotojas - User
