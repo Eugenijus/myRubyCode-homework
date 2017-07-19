@@ -4,6 +4,7 @@ This is a project I had to do for **Ruby** on Rails class when I was in Vilnius 
 The goal was to learn TDD and Ruby language by creating a project and I choose to create **Car rental management system**.
 
 ===========================================================
+
 Reikalavimai is savybes.txt :
 
 A) Automobiliu nuomavimo valdymo sistema.
@@ -89,6 +90,7 @@ Garazas tures:
 - adresa
 
 ================================================================
+
 NEPADARYTA:
 
 Vartotojas gali israshyti saskaita:
